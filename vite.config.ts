@@ -13,7 +13,9 @@ const config = defineConfig({
       projects: ['./tsconfig.json'],
     }),
     tailwindcss(),
-    tanstackStart(),
+    tanstackStart({
+      clientEntry: '/src/client.tsx',
+    }),
     viteReact({
       babel: {
         plugins: ['babel-plugin-react-compiler'],
