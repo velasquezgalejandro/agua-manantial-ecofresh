@@ -51,10 +51,13 @@ export const VisionOption = () => {
           zIndex: 1000,
         }}
       >
-        <img
+        <Box
+          component={'img'}
           src="/templates/template_1920x1080_2.jpg" // ← Cambia esto por tu imagen real
           alt="Vision"
-          style={{
+          sx={{
+            width: 1,
+            height: 1,
             objectFit: 'cover',
           }}
         />
