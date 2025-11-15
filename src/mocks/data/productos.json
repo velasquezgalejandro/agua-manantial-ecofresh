@@ -1,46 +1,47 @@
 [
   {
     "id": 1,
-    "name": "Jugo de Naranja",
-    "description": "Jugo natural sin conservantes",
-    "imagen": "https://example.com/img/jugo-naranja.png",
-    "price": "5000",
+    "name": "Agua normal sin gas",
+    "description": "Agua normal sin gas",
+    "imagen": "https://example.com/img/agua-normal.png",
     "presentations": [
-      { "tipo": "botella", "tamaño": "250ml" },
-      { "tipo": "botella", "tamaño": "1L" }
+      { "tipo": "bolsa", "tamaño": 350, "price": 5000},
+      { "tipo": "bolsa", "tamaño": 6000, "price": 8000}, 
+      { "tipo": "botellon", "tamaño": 20000, "price": 15000},
+      { "tipo": "botella", "tamaño": 300, "price": 2000 },
+      { "tipo": "botella", "tamaño": 600, "price": 3500 }
     ]
   },
   {
     "id": 2,
-    "name": "Arroz Premium",
-    "description": "Arroz blanco extra calidad",
-    "imagen": "https://example.com/img/arroz-premium.png",
-    "price": "3500",
+    "name": "Linea ecologica ecofresh",
+    "description": "Linea ecologica ecofresh",
+    "imagen": "https://example.com/img/ecofresh.png",
     "presentations": [
-      { "tipo": "bolsa", "tamaño": "500g" },
-      { "tipo": "bolsa", "tamaño": "1kg" }
+      { "tipo": "bolsa", "tamaño": 350, "price": 4000 },
+      { "tipo": "bolsa", "tamaño": 6000, "price": 7000 },
+      { "tipo": "botellon", "tamaño": 20000, "price": 14000 },
+      { "tipo": "botella", "tamaño": 300, "price": 1800 },
+      { "tipo": "botella", "tamaño": 600, "price": 3000 }
     ]
   },
   {
     "id": 3,
-    "name": "Leche Entera",
-    "description": "Leche entera pasteurizada",
+    "name": "Linea infantil - toñito",
+    "description": "Linea infantil",
     "imagen": "https://example.com/img/leche-entera.png",
-    "price": "6000",
     "presentations": [
-      { "tipo": "botella", "tamaño": "1L" },
-      { "tipo": "botella", "tamaño": "1.5L" }
+      { "tipo": "botella", "tamaño": 300, "price": 2500 }
     ]
   },
   {
     "id": 4,
-    "name": "Harina de Trigo",
-    "description": "Harina de trigo fortificada",
+    "name": "Linea premium",
+    "description": "Linea premium",
     "imagen": "https://example.com/img/harina-trigo.png",
-    "price": "4200",
     "presentations": [
-      { "tipo": "bolsa", "tamaño": "500g" },
-      { "tipo": "bolsa", "tamaño": "2kg" }
+      { "tipo": "botella", "tamaño": 300, "price": 3000 },
+      { "tipo": "botella", "tamaño": 600, "price": 4500 }
     ]
   }
 ]
