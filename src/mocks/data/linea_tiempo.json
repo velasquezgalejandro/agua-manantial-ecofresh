@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "Lanzamiento de Producto",
+    "description": "Evento de presentación del nuevo producto",
+    "year": "2025",
+    "date": "2025-03-15",
+    "imagen": "https://example.com/img/evento-lanzamiento.png"
+  },
+  {
+    "id": 2,
+    "title": "Conferencia Tecnológica",
+    "description": "Conferencia anual sobre avances tecnológicos",
+    "year": "2024",
+    "date": "2024-11-02",
+    "imagen": "https://example.com/img/conferencia-tech.png"
+  },
+  {
+    "id": 3,
+    "title": "Feria Empresarial",
+    "description": "Feria para conectar empresas y clientes",
+    "year": "2023",
+    "date": "2023-07-20",
+    "imagen": "https://example.com/img/feria-empresarial.png"
+  },
+  {
+    "id": 4,
+    "title": "Concierto Benéfico",
+    "description": "Evento musical para recaudar fondos",
+    "year": "2025",
+    "date": "2025-05-01",
+    "imagen": "https://example.com/img/concierto-benefico.png"
+  }
+]

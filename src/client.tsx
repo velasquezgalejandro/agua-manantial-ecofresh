@@ -1,17 +1,17 @@
-import { StartClient } from '@tanstack/start'
+import { StartClient } from '@tanstack/react-start/client'
 import { StrictMode } from 'react'
-import ReactDOM from 'react-dom/client'
+import { hydrateRoot } from 'react-dom/client'
+import { enableMocking } from './mocks/enable'
 
-async function enableMocking() {
-  const { worker } = await import('./mocks/browser')
-  return worker.start()
-}
+async function main() {
+  await enableMocking()
 
-enableMocking().then(() => {
-  ReactDOM.hydrateRoot(
+  hydrateRoot(
     document,
     <StrictMode>
       <StartClient />
-    </StrictMode>
+    </StrictMode>,
   )
-})
+}
+
+main()

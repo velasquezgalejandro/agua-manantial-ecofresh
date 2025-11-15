@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "name": "Jugo de Naranja",
+    "description": "Jugo natural sin conservantes",
+    "imagen": "https://example.com/img/jugo-naranja.png",
+    "price": "5000",
+    "presentations": [
+      { "tipo": "botella", "tamaño": "250ml" },
+      { "tipo": "botella", "tamaño": "1L" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Arroz Premium",
+    "description": "Arroz blanco extra calidad",
+    "imagen": "https://example.com/img/arroz-premium.png",
+    "price": "3500",
+    "presentations": [
+      { "tipo": "bolsa", "tamaño": "500g" },
+      { "tipo": "bolsa", "tamaño": "1kg" }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Leche Entera",
+    "description": "Leche entera pasteurizada",
+    "imagen": "https://example.com/img/leche-entera.png",
+    "price": "6000",
+    "presentations": [
+      { "tipo": "botella", "tamaño": "1L" },
+      { "tipo": "botella", "tamaño": "1.5L" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Harina de Trigo",
+    "description": "Harina de trigo fortificada",
+    "imagen": "https://example.com/img/harina-trigo.png",
+    "price": "4200",
+    "presentations": [
+      { "tipo": "bolsa", "tamaño": "500g" },
+      { "tipo": "bolsa", "tamaño": "2kg" }
+    ]
+  }
+]
