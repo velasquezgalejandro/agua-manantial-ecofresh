@@ -119,8 +119,8 @@ export const HistoryView = () => {
                 transform: 'translate(50%, 0%)',
               }}
             >
-              {renderToggleButton('option1', 'Quienes somos')}
-              {renderToggleButton('option2', 'Mision y Vision')}
+              {renderToggleButton('option1', '¿Quienes somos?')}
+              {renderToggleButton('option2', 'Misión y Visión')}
               {renderToggleButton('option3', 'Nuestra historia')}
             </ToggleButtonGroup>
           </motion.div>

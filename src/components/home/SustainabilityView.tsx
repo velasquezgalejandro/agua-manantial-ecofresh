@@ -54,38 +54,59 @@ const dummyData = [
 export const SustainabilityView = () => {
   const renderCard = (titulo, Icono, descripcion, color) => {
     return (
-      <motion.div
-        initial={{ opacity: 0 }} // Estado inicial
-        animate={{ opacity: 1 }} // Estado final
-        transition={{
-          duration: 0.5,
-          ease: 'easeOut',
-        }}
-      >
+      <Grid size={{ xs: 12, smh: 6 }} sx={{}}>
         <Stack
           sx={{
-            maxWidth: 350,
-            height: 310,
-            borderRadius: 2,
-            boxShadow: 2,
+            width: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
-          <Stack
-            sx={{
-              p: 2,
-              rowGap: 2,
+          <motion.div
+            initial={{ opacity: 0 }} // Estado inicial
+            animate={{ opacity: 1 }} // Estado final
+            // whileHover={{
+            //   scale: 1.03,
+            //   boxShadow: `0px 0px 18px ${color}55`,
+            // }}
+            whileHover={{
+              scale: 1.02,
+              background: `linear-gradient(135deg, ${color}22 0%, #fff 50%, ${color}22 100%)`,
+            }}
+            transition={{
+              duration: 0.5,
+              ease: 'easeOut',
             }}
           >
-            <SvgIcon sx={{ fontSize: '6rem', color }}>
-              <Icono />
-            </SvgIcon>
-            <Stack sx={{ rowGap: 1 }}>
-              <Typography variant="h5">{titulo}</Typography>
-              <Typography variant="body2">{descripcion}</Typography>
+            <Stack
+              sx={{
+                maxWidth: 350,
+                height: 310,
+                borderRadius: 2,
+                boxShadow: 2,
+                ':hover': {
+                  cursor: 'pointer',
+                },
+              }}
+            >
+              <Stack
+                sx={{
+                  p: 2,
+                  rowGap: 2,
+                }}
+              >
+                <SvgIcon sx={{ fontSize: '6rem', color }}>
+                  <Icono />
+                </SvgIcon>
+                <Stack sx={{ rowGap: 1 }}>
+                  <Typography variant="h5">{titulo}</Typography>
+                  <Typography variant="body2">{descripcion}</Typography>
+                </Stack>
+              </Stack>
             </Stack>
-          </Stack>
+          </motion.div>
         </Stack>
-      </motion.div>
+      </Grid>
     )
   }
 
@@ -96,22 +117,11 @@ export const SustainabilityView = () => {
           Nuestro compromiso con la sostenibilidad
         </Typography>
 
-        <Grid></Grid>
-        <Stack
-          sx={{
-            width: 1,
-            rowGap: 4,
-            columnGap: 4,
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-            flexWrap: 'wrap',
-            px: 2,
-          }}
-        >
+        <Grid container spacing={2}>
           {dummyData?.map(({ titulo, Icono, descripcion, color }) => {
             return renderCard(titulo, Icono, descripcion, color)
           })}
-        </Stack>
+        </Grid>
       </Stack>
     </GenericContainer>
   )
