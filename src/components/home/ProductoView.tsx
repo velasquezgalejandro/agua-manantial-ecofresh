@@ -96,7 +96,7 @@ const renderRightImageProduct: FC<TProduct> = ({
   const theme = useTheme()
 
   return (
-    <Grid container spacing={2} sx={{ py: 4 }}>
+    <Grid container spacing={2} sx={{ py: 4 }} key={id}>
       <Grid size={{ xs: 12, md: 7 }}>
         <motion.div
           initial={{ opacity: 0, x: -100 }} // Estado inicial
@@ -132,12 +132,12 @@ const renderRightImageProduct: FC<TProduct> = ({
               </Typography>
             </Stack>
             <Stack sx={{ flexDirection: 'row', columnGap: 2 }}>
-              {presentaciones.map(({ tipo, tamaños }) => {
+              {presentaciones.map(({ tipo, tamaños }, index) => {
                 return (
-                  <Stack>
+                  <Stack key={index}>
                     <Typography>{tipo}</Typography>
-                    {tamaños?.map((tamaño) => (
-                      <Typography>{tamaño}</Typography>
+                    {tamaños?.map((tamaño, index) => (
+                      <Typography key={index}>{tamaño}</Typography>
                     ))}
                   </Stack>
                 )
@@ -185,7 +185,7 @@ const renderLeftImageProduct = ({
 }) => {
   const theme = useTheme()
   return (
-    <Stack>
+    <Stack key={id}>
       <Box
         component="div"
         sx={{
@@ -269,12 +269,12 @@ const renderLeftImageProduct = ({
                 </Typography>
               </Stack>
               <Stack sx={{ flexDirection: 'row', columnGap: 2 }}>
-                {presentaciones.map(({ tipo, tamaños }) => {
+                {presentaciones.map(({ tipo, tamaños }, index) => {
                   return (
-                    <Stack>
+                    <Stack key={index}>
                       <Typography>{tipo}</Typography>
-                      {tamaños?.map((tamaño) => (
-                        <Typography>{tamaño}</Typography>
+                      {tamaños?.map((tamaño, index) => (
+                        <Typography key={index}>{tamaño}</Typography>
                       ))}
                     </Stack>
                   )

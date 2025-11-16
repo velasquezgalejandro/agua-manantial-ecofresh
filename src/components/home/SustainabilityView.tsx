@@ -54,7 +54,7 @@ const dummyData = [
 export const SustainabilityView = () => {
   const renderCard = (titulo, Icono, descripcion, color) => {
     return (
-      <Grid size={{ xs: 12, smh: 6 }} sx={{}}>
+      <Grid size={{ xs: 12, smh: 6 }} sx={{}} key={titulo}>
         <Stack
           sx={{
             width: 1,

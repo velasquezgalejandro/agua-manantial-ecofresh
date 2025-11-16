@@ -35,7 +35,7 @@ export const InitialView = () => {
             duration: 0.5,
             ease: 'easeOut',
           }}
-          sx={{
+          styles={{
             position: 'absolute',
             bottom: '50%',
             bgcolor: 'white',

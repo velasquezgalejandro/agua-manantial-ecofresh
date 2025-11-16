@@ -268,7 +268,7 @@ export const baseTheme = createTheme(
         w05: darken(white, 0.05),
       },
       background: {
-        paper: '#e2f1fc',
+        paper: '#f9fbfcff',
         default: '#ffffff',
         layout: '#e6f6eb',
       },
