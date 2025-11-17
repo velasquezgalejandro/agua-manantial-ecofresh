@@ -73,14 +73,14 @@ export const CampaingsView = () => {
         <Typography variant="h4" align="center">
           Eventos
         </Typography>
-        <Grid container sx={{ px: 4 }} spacing={2}>
+        <Grid container spacing={2}>
           {evento.map(({ id, name, descripcion, categoria, activo }) => {
             if (!activo) {
               return
             }
             return (
-              <Grid size={4} key={id}>
-                <Paper sx={{ py: 3, px: 2 }}>
+              <Grid size={{ xs: 12, smh: 6, mdh: 4 }} key={id}>
+                <Paper sx={{ py: 3, px: 2, boxShadow: 2 }}>
                   <Stack sx={{ rowGap: 2 }}>
                     <Stack
                       direction="row"
@@ -90,7 +90,6 @@ export const CampaingsView = () => {
                       <Typography variant="h6" sx={{ fontWeight: 600 }}>
                         {name}
                       </Typography>
-
                       <Chip
                         label={categoria}
                         sx={{

@@ -6,8 +6,10 @@ import { GenericContainer } from '~utils/GenericContainer'
 import { LiquidButtons } from '~utils/LiquidButtons.tsx'
 import { useTheme } from '@mui/material/styles'
 import { motion } from 'framer-motion'
+import useMediaQuery from '@mui/material/useMediaQuery'
 
 export const InitialView = () => {
+  const isBiggerThanSmh = useMediaQuery((theme) => theme.breakpoints.up('smh'))
   const theme = useTheme()
   return (
     // Intentar box externo
@@ -63,31 +65,48 @@ export const InitialView = () => {
               bgcolor: 'rgba(255, 255, 255, 0.6)',
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
-              width: { xs: '90%', md: '60%', lg: '40%' },
+              width: { xs: '80%', md: '60%', lg: '40%' },
             }}
           >
             <Stack sx={{ width: 1 }}>
               <Typography variant="h2" fontWeight="bold" gutterBottom>
                 Ecofresh
               </Typography>
-              <Typography variant="h6" sx={{ mb: 4 }}>
-                ¡Bienvenido a Agua Manantial Fresh! Donde la pureza del agua y
-                el compromiso con el planeta se unen para refrescar tu vida.
+              <Typography variant="h6" sx={{ mb: { xs: 2, smh: 3 } }}>
+                ¡Bienvenido a{' '}
+                <Box
+                  component="span"
+                  sx={{
+                    backgroundImage: (theme) =>
+                      `linear-gradient(90deg, ${theme.palette.secondary.light}, ${theme.palette.secondary.dark}  )`,
+                    backgroundClip: 'text',
+                    WebkitBackgroundClip: 'text',
+                    color: 'transparent',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  Agua Manantial Fresh
+                </Box>
+                ! Donde la pureza del agua y el compromiso con el planeta se
+                unen para refrescar tu vida.
               </Typography>
               <Stack
-                direction="row"
+                direction={isBiggerThanSmh ? 'row' : 'column'}
                 spacing={2}
-                justifyContent={{ xs: 'center', md: 'flex-start' }}
+                sx={{
+                  justifyContent: { xs: 'center', smh: 'flex-end' },
+                  alignItems: { xs: 'center' },
+                }}
               >
                 <LiquidButtons
                   label={'Nuestros Productos'}
                   buttonAnimationColor={theme.palette.primary[900]}
-                  sx={{ bgcolor: theme.palette.primary[600] }}
+                  sx={{ bgcolor: theme.palette.primary[600], width: 200 }}
                 />
                 <LiquidButtons
                   label={'Conocenos'}
                   buttonAnimationColor={theme.palette.primary[900]}
-                  sx={{ bgcolor: theme.palette.primary[600] }}
+                  sx={{ bgcolor: theme.palette.primary[600], width: 200 }}
                 />
               </Stack>
             </Stack>

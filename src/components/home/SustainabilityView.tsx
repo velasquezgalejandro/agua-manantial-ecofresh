@@ -82,7 +82,6 @@ export const SustainabilityView = () => {
               sx={{
                 maxWidth: 350,
                 height: 310,
-                borderRadius: 2,
                 boxShadow: 2,
                 ':hover': {
                   cursor: 'pointer',

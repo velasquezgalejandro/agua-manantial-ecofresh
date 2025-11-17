@@ -52,8 +52,8 @@ export const FutureView = () => {
 
         <Grid container spacing={3}>
           {items.map((text, idx) => (
-            <Grid item size={4} key={idx}>
-              <Paper sx={{ p: 2, height: '100%' }}>
+            <Grid item size={{ xs: 12, smh: 6, mdh: 4 }} key={idx}>
+              <Paper sx={{ p: 2, height: '100%', boxShadow: 2 }}>
                 <Box
                   sx={{ display: 'flex', alignItems: 'center', height: '100%' }}
                 >
