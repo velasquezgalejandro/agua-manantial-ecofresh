@@ -43,7 +43,7 @@ export const fetchList = async <T extends BaseSchema<any, any, any>>(
   model: TModelKeys,
   schema: T,
 ): Promise<InferOutput<T>> => {
-  return createFetcherList(`${model}/`, schema);
+  return createFetcherList(`/${model}`, schema);
 };
 
 export const fetchInstance = async <T extends BaseSchema<any, any, any>>(
@@ -51,5 +51,5 @@ export const fetchInstance = async <T extends BaseSchema<any, any, any>>(
   schema: T,
   id: string,
 ): Promise<InferOutput<T>> => {
-  return createFetcherInstance(`${model}/${id}`, schema);
+  return createFetcherInstance(`/${model}/${id}`, schema);
 };

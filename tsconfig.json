@@ -35,6 +35,7 @@
       "~home/*": ["src/components/home/*"],
       "~state/*": ["src/state/*"],
       "~api/*": ["src/api/*"],
+      "~schemas/*": ["src/schemas/*"],
       "~constants/*": ["src/constants/*"],
       "~context/*": ["src/context/*"],
       "~hooks/*": ["src/hooks/*"],

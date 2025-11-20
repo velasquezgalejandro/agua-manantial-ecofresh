@@ -1,12 +1,12 @@
-import type { TSliceState, TFilterState } from '~client/clientTypes.ts';
+import type { TSliceState, TFilterState } from '~client/clientTypes.ts'
 
 export const modelKeys = [
   'regiones',
-  'estaciones',
   'municipios',
-  'parametros',
-  'secciones',
-] as const;
+  'eventos',
+  'productos',
+  'linea-tiempo',
+] as const
 
 export const initialState: TSliceState = {
   filter: [], // Array of ids on filtered instance
@@ -14,8 +14,8 @@ export const initialState: TSliceState = {
   search: null, // Value to search in data
   selectedId: null, // Current selected id of the model
   selectedIds: [], // Current selected ids of the model
-};
+}
 
 export const filterInitialState: TFilterState = {
   themeMode: 'light',
-};
+}

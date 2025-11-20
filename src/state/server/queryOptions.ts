@@ -8,6 +8,12 @@ import {
   RegionesListSchema,
   MunicipiosSchema,
   MunicipiosListSchema,
+  EventSchema,
+  EventsListSchema,
+  ProductSchema,
+  ProductsListSchema,
+  TimelineSchema,
+  TimelineListSchema,
 } from '~schemas/schemas.ts'
 
 const queryFactory = <
@@ -42,6 +48,13 @@ export const queries = {
     MunicipiosListSchema,
     MunicipiosSchema,
   ),
+  productos: queryFactory('productos', ProductsListSchema, ProductSchema),
+  'linea-tiempo': queryFactory(
+    'linea-tiempo',
+    TimelineListSchema,
+    TimelineSchema,
+  ),
+  eventos: queryFactory('eventos', EventsListSchema, EventSchema),
 } as const satisfies Record<
   TModelKeys,
   ReturnType<typeof queryFactory<any, any>>

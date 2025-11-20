@@ -1,6 +1,7 @@
-export const DOMAIN = 'http://localhost:8000/' as const;
+export const DOMAIN = 'http://localhost:8000/' as const
 
-export const API = `${DOMAIN}api/v1/` as const;
+export const API = `api/` as const
+// export const API = `${DOMAIN}api/v1/` as const;
 
-export const CLIENT_ID = '';
-export const CLIENT_SECRET = '';
+export const CLIENT_ID = ''
+export const CLIENT_SECRET = ''
