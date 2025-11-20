@@ -29,8 +29,11 @@
     "noUncheckedSideEffectImports": true,
     "baseUrl": ".",
     "paths": {
+      "~client/*": ["src/state/client/*"],
+      "~server/*": ["src/state/server/*"],
       "~utils/*": ["src/components/utils/*"],
       "~home/*": ["src/components/home/*"],
+      "~state/*": ["src/state/*"],
       "~api/*": ["src/api/*"],
       "~constants/*": ["src/constants/*"],
       "~context/*": ["src/context/*"],
