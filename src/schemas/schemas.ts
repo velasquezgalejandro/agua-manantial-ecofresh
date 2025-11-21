@@ -37,42 +37,20 @@ export const ProductSchema = object({
   name: string(),
   description: string(),
   imagen: string(),
-  presentation: array(
-    object({
-      tipo: string(),
-      tamaño: number(),
-      price: number(),
-    }),
-  ),
+  // presentation: array(
+  //   object({
+  //     tipo: string(),
+  //     tamaño: number(),
+  //     price: number(),
+  //   }),
+  // ),
+  presentation: any(),
 })
 
-export const ProductsListSchema = array(ProductSchema)
+export const ProductsListSchema = any()
 
 export type TProductList = typeof ProductsListSchema
 export type TProduct = typeof ProductSchema
-
-// /* ====================================================================== */
-// /* ESQUEMAS DE estaciones
-// /* ====================================================================== */
-// export const StationsSchema = object({
-//   id: string(),
-//   codigo: string(),
-//   municipio: number(),
-//   region: number(),
-//   ubicacion_campo: string(),
-//   latitud: number(),
-//   longitud: number(),
-//   red: string(),
-//   clasificacion: string(),
-//   corriente: string(),
-//   label: string(),
-//   sensores: record(string(), any()),
-// });
-
-// export const StationsListSchema = array(StationsSchema);
-
-// export type TStation = InferInput<typeof StationsSchema>;
-// export type TStationList = InferInput<typeof StationsListSchema>;
 
 /* ====================================================================== */
 /* ESQUEMAS DE Regiones

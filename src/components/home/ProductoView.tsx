@@ -7,6 +7,7 @@ import { GenericContainer } from '~utils/GenericContainer'
 import { LiquidButtons } from '~utils/LiquidButtons'
 import { useTheme } from '@mui/material/styles'
 import { motion } from 'framer-motion'
+import { useGetProductosData } from '~server/hooks/useGetProductos'
 
 const dummyData = [
   {
@@ -132,7 +133,7 @@ const renderRightImageProduct: FC<TProduct> = ({
               </Typography>
             </Stack>
             <Stack sx={{ flexDirection: 'row', columnGap: 2 }}>
-              {presentaciones.map(({ tipo, tamaños }, index) => {
+              {presentaciones?.map(({ tipo, tamaños }, index) => {
                 return (
                   <Stack key={index}>
                     <Typography>{tipo}</Typography>
@@ -269,7 +270,7 @@ const renderLeftImageProduct = ({
                 </Typography>
               </Stack>
               <Stack sx={{ flexDirection: 'row', columnGap: 2 }}>
-                {presentaciones.map(({ tipo, tamaños }, index) => {
+                {presentaciones?.map(({ tipo, tamaños }, index) => {
                   return (
                     <Stack key={index}>
                       <Typography>{tipo}</Typography>
@@ -322,6 +323,13 @@ const renderLeftImageProduct = ({
 }
 
 export const ProductsView = () => {
+  const { data: dataProducts, isLoading, isError } = useGetProductosData()
+
+  if (isLoading) return <div>Loading...</div>
+  if (isError) return <div>Error loading products</div>
+
+  const data = Object.values(dataProducts)
+
   return (
     <GenericContainer sx={{ pb: 0, px: 0 }}>
       <Stack sx={{ rowGap: 6, width: 1 }}>
@@ -329,7 +337,7 @@ export const ProductsView = () => {
           Nuestros Productos
         </Typography>
         <Stack sx={{ width: 1, rowGap: 4 }}>
-          {dummyData.map((product, index) => {
+          {data?.map((product, index) => {
             const isEven = index % 2 === 0
             return isEven
               ? renderRightImageProduct(product)

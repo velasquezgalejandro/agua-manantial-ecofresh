@@ -40,7 +40,6 @@ export const InitialView = () => {
           styles={{
             position: 'absolute',
             bottom: '50%',
-            bgcolor: 'white',
             color: 'black',
             transform: 'translateY(50%)',
             boxShadow: 2,
@@ -56,7 +55,6 @@ export const InitialView = () => {
             sx={{
               position: 'absolute',
               bottom: '50%',
-              bgcolor: 'white',
               color: 'black',
               transform: 'translateY(50%)',
               boxShadow: 2,
