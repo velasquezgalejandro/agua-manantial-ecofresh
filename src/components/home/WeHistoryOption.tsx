@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 import Button from '@mui/material/Button'
 import Paper from '@mui/material/Paper'
+import { useGetTimelineData } from '~server/hooks/useGetTimeline'
 
 const events = [
   {
@@ -60,12 +61,15 @@ const events = [
 ]
 
 export const WeHistoryOption = () => {
+  const { data: timelineData, isError, isLoading } = useGetTimelineData()
   const [selectedStep, setSelectedStep] = useState<number | null>(null)
+
+  const data = Object.values(timelineData || {})
 
   const renderTimeLine = () => {
     return (
       <Timeline position="alternate">
-        {events.map((ev, index) => (
+        {data?.map((ev, index) => (
           <TimelineItem key={ev.id}>
             <TimelineSeparator>
               <TimelineDot
@@ -107,7 +111,9 @@ export const WeHistoryOption = () => {
   }
 
   const renderDetailsCard = () => {
-    const eventSelected = events.find((e) => e.id === selectedStep)
+    const eventSelected = data.find((e) => e.id === selectedStep)
+
+    console.log({ eventSelected })
 
     return (
       <Paper
@@ -153,12 +159,12 @@ export const WeHistoryOption = () => {
                   textAlign: 'justify',
                 }}
               >
-                {eventSelected.descripcion}
+                {eventSelected.description}
               </Typography>
 
               <Box
                 component="img"
-                src="templates/template_1920x1080_2.jpg"
+                src={eventSelected.imagen}
                 sx={{
                   width: '45%',
                   height: 220,
@@ -171,6 +177,14 @@ export const WeHistoryOption = () => {
         )}
       </Paper>
     )
+  }
+
+  if (isLoading) {
+    return <div>Cargando línea del tiempo...</div>
+  }
+
+  if (isError) {
+    return <div>Error al cargar la línea del tiempo.</div>
   }
 
   return (

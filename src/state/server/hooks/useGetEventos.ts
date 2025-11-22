@@ -8,7 +8,6 @@ export const useGetEventosData = () => {
   return useQuery({
     ...queries.eventos.list(),
     select: (data) => {
-      console.log({ aqui: 'aqui', data })
       return getModelData({ data })
     },
   })

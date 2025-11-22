@@ -19,7 +19,9 @@ const createFetcherList = async <T extends BaseSchema<any, any, any>>(
   schema: T,
 ): Promise<InferOutput<T>> => {
   const response = await apiClient.get(url)
+  console.log({ response, url })
   const data = safeParse(schema, response.data)
+  console.log({ data, url })
 
   if (!data.success)
     throw new Error(`SCHEMA ERROR: failed to fetch data list: ${url}`)

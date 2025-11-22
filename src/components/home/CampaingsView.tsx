@@ -13,6 +13,7 @@ import AddIcon from '@mui/icons-material/Add'
 import Chip from '@mui/material/Chip'
 
 import Paper from '@mui/material/Paper'
+import { useGetEventosData } from '~server/hooks/useGetEventos'
 
 const evento = [
   {
@@ -42,6 +43,18 @@ const evento = [
 ]
 
 export const CampaingsView = () => {
+  const { data: eventosData, isLoading, isError } = useGetEventosData()
+
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+
+  if (isError) {
+    return <div>Error loading eventos data</div>
+  }
+
+  const data = Object.values(eventosData) || []
+
   return (
     <GenericContainer
       sx={{
@@ -74,7 +87,7 @@ export const CampaingsView = () => {
           Eventos
         </Typography>
         <Grid container spacing={2}>
-          {evento.map(({ id, name, descripcion, categoria, activo }) => {
+          {data?.map(({ id, name, descripcion, categoria, activo, imagen }) => {
             if (!activo) {
               return
             }

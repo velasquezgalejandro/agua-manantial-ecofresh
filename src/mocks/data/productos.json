@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Agua normal sin gas",
     "description": "Agua normal sin gas",
-    "imagen": "https://example.com/img/agua-normal.png",
+    "imagen": "templates/template_1920x1080.png",
     "presentations": [
       { "tipo": "bolsa", "tamaño": 350, "price": 5000},
       { "tipo": "bolsa", "tamaño": 6000, "price": 8000}, 
@@ -16,7 +16,7 @@
     "id": 2,
     "name": "Linea ecologica ecofresh",
     "description": "Linea ecologica ecofresh",
-    "imagen": "https://example.com/img/ecofresh.png",
+    "imagen": "templates/template_1920x1080.png",
     "presentations": [
       { "tipo": "bolsa", "tamaño": 350, "price": 4000 },
       { "tipo": "bolsa", "tamaño": 6000, "price": 7000 },
@@ -29,7 +29,7 @@
     "id": 3,
     "name": "Linea infantil - toñito",
     "description": "Linea infantil",
-    "imagen": "https://example.com/img/leche-entera.png",
+    "imagen": "templates/template_1920x1080.png",
     "presentations": [
       { "tipo": "botella", "tamaño": 300, "price": 2500 }
     ]
@@ -38,7 +38,7 @@
     "id": 4,
     "name": "Linea premium",
     "description": "Linea premium",
-    "imagen": "https://example.com/img/harina-trigo.png",
+    "imagen": "templates/template_1920x1080.png",
     "presentations": [
       { "tipo": "botella", "tamaño": 300, "price": 3000 },
       { "tipo": "botella", "tamaño": 600, "price": 4500 }

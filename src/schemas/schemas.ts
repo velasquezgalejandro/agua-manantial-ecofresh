@@ -1,11 +1,11 @@
-import { object, string, number, array, any } from 'valibot'
+import { object, string, number, array, any, boolean } from 'valibot'
 
 export const EventSchema = object({
   id: number(),
   name: string(),
   descripcion: string(),
   imagen: string(),
-  activo: string(),
+  activo: boolean(),
   categoria: string(),
 })
 

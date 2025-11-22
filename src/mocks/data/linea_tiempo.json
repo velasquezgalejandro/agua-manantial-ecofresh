@@ -5,7 +5,8 @@
     "description": "Evento de presentación del nuevo producto",
     "year": "2025",
     "date": "2025-03-15",
-    "imagen": "https://example.com/img/evento-lanzamiento.png"
+    "imagen": "https://example.com/img/evento-lanzamiento.png",
+    "color" : "success"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "description": "Conferencia anual sobre avances tecnológicos",
     "year": "2024",
     "date": "2024-11-02",
-    "imagen": "https://example.com/img/conferencia-tech.png"
+    "imagen": "https://example.com/img/conferencia-tech.png",
+    "color" : "success"
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "description": "Feria para conectar empresas y clientes",
     "year": "2023",
     "date": "2023-07-20",
-    "imagen": "https://example.com/img/feria-empresarial.png"
+    "imagen": "https://example.com/img/feria-empresarial.png",
+    "color" : "success"
   },
   {
     "id": 4,
@@ -29,6 +32,7 @@
     "description": "Evento musical para recaudar fondos",
     "year": "2025",
     "date": "2025-05-01",
-    "imagen": "https://example.com/img/concierto-benefico.png"
+    "imagen": "https://example.com/img/concierto-benefico.png",
+    "color" : "success"
   }
 ]

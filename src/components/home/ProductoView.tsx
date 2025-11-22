@@ -79,20 +79,18 @@ const dummyData = [
 
 type TProduct = {
   id: number
-  nombre: string
-  descripcion: string
+  name: string
+  description: string
   imagen: string
-  precio: number
-  presentaciones: Record<string, string>[]
+  presentations: Record<string, string>[]
 }
 
 const renderRightImageProduct: FC<TProduct> = ({
   id,
-  nombre,
-  descripcion,
+  name,
+  description,
   imagen,
-  precio,
-  presentaciones,
+  presentations,
 }) => {
   const theme = useTheme()
 
@@ -126,30 +124,44 @@ const renderRightImageProduct: FC<TProduct> = ({
               }}
             >
               <Typography variant="h5" sx={{ color: 'text.primary' }}>
-                {nombre}
+                {name}
               </Typography>
               <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-                {descripcion}
+                {description}
               </Typography>
             </Stack>
-            <Stack sx={{ flexDirection: 'row', columnGap: 2 }}>
-              {presentaciones?.map(({ tipo, tamaños }, index) => {
+            <Stack
+              sx={{ flexDirection: 'row', columnGap: 3, flexWrap: 'wrap' }}
+            >
+              {[...new Set(presentations.map((p) => p.tipo))].map((tipo) => {
+                const itemsByType = presentations.filter((p) => p.tipo === tipo)
+
                 return (
-                  <Stack key={index}>
-                    <Typography>{tipo}</Typography>
-                    {tamaños?.map((tamaño, index) => (
-                      <Typography key={index}>{tamaño}</Typography>
+                  <Stack
+                    key={tipo}
+                    sx={{
+                      bgcolor: theme.palette.primary[300],
+                      borderRadius: 2,
+                      p: 2,
+                      minWidth: 120,
+                      alignItems: 'center',
+                    }}
+                  >
+                    <Typography
+                      sx={{ fontWeight: 'bold', textTransform: 'capitalize' }}
+                    >
+                      {tipo}
+                    </Typography>
+
+                    {itemsByType.map(({ tamaño, price }, i) => (
+                      <Typography key={i} sx={{ fontSize: '0.75rem' }}>
+                        {tamaño} ml — ${price.toLocaleString()}
+                      </Typography>
                     ))}
                   </Stack>
                 )
               })}
             </Stack>
-            <Typography sx={{ fontWeight: 'bold' }}>$ {precio} COP</Typography>
-            <LiquidButtons
-              label={'Ver mas'}
-              buttonAnimationColor={theme.palette.primary[900]}
-              sx={{ bgcolor: theme.palette.primary[600] }}
-            />
           </Stack>
         </motion.div>
       </Grid>
@@ -178,11 +190,10 @@ const renderRightImageProduct: FC<TProduct> = ({
 
 const renderLeftImageProduct = ({
   id,
-  nombre,
-  descripcion,
+  name,
+  description,
   imagen,
-  precio,
-  presentaciones,
+  presentations,
 }) => {
   const theme = useTheme()
   return (
@@ -263,32 +274,46 @@ const renderLeftImageProduct = ({
                 }}
               >
                 <Typography variant="h5" sx={{ color: 'text.primary' }}>
-                  {nombre}
+                  {name}
                 </Typography>
                 <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-                  {descripcion}
+                  {description}
                 </Typography>
               </Stack>
-              <Stack sx={{ flexDirection: 'row', columnGap: 2 }}>
-                {presentaciones?.map(({ tipo, tamaños }, index) => {
+              <Stack
+                sx={{ flexDirection: 'row', columnGap: 3, flexWrap: 'wrap' }}
+              >
+                {[...new Set(presentations.map((p) => p.tipo))].map((tipo) => {
+                  const itemsByType = presentations.filter(
+                    (p) => p.tipo === tipo,
+                  )
+
                   return (
-                    <Stack key={index}>
-                      <Typography>{tipo}</Typography>
-                      {tamaños?.map((tamaño, index) => (
-                        <Typography key={index}>{tamaño}</Typography>
+                    <Stack
+                      key={tipo}
+                      sx={{
+                        bgcolor: theme.palette.primary[300],
+                        borderRadius: 2,
+                        p: 2,
+                        minWidth: 120,
+                        alignItems: 'center',
+                      }}
+                    >
+                      <Typography
+                        sx={{ fontWeight: 'bold', textTransform: 'capitalize' }}
+                      >
+                        {tipo}
+                      </Typography>
+
+                      {itemsByType.map(({ tamaño, price }, i) => (
+                        <Typography key={i} sx={{ fontSize: '0.75rem' }}>
+                          {tamaño} ml — ${price.toLocaleString()}
+                        </Typography>
                       ))}
                     </Stack>
                   )
                 })}
               </Stack>
-              <Typography sx={{ fontWeight: 'bold' }}>
-                $ {precio} COP
-              </Typography>
-              <LiquidButtons
-                label={'Ver mas'}
-                buttonAnimationColor={theme.palette.primary[900]}
-                sx={{ bgcolor: theme.palette.primary[600] }}
-              />
             </Stack>
           </motion.div>
         </Grid>
