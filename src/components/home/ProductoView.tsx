@@ -9,74 +9,6 @@ import { useTheme } from '@mui/material/styles'
 import { motion } from 'framer-motion'
 import { useGetProductosData } from '~server/hooks/useGetProductos'
 
-const dummyData = [
-  {
-    id: 1,
-    nombre: 'Agua normal sin gas',
-    descripcion:
-      'Agua tratada con procesos de alta calidad, ideal para consumo diario en hogares, empresas e instituciones. Producto sin saborizantes, ni calorias 100% natural. ',
-    imagen: 'templates/template_1920x1080.png',
-    presentaciones: [
-      {
-        tipo: 'Bolsa',
-        tamaños: ['350 ml', '6 L'],
-      },
-      {
-        tipo: 'Botella',
-        tamaños: ['300 ml', '600 ml'],
-      },
-      { tipo: 'Botellon', tamaños: ['20 L'] },
-    ],
-    precio: 49.99,
-  },
-  {
-    id: 2,
-    nombre: 'Linea Ecologica',
-    descripcion:
-      'Agua de lluvia recolectada , tratada, filtrada y purificada con tecnología sostenible. Se entrega en envases reciclables. Ideal para consumidores comprometidos con el medio ambiente.',
-    imagen: 'templates/template_1920x1080.png',
-    presentaciones: [
-      {
-        tipo: 'Bolsa',
-        tamaños: ['350 ml', '6 L'],
-      },
-      {
-        tipo: 'Botella',
-        tamaños: ['300 ml', '600 ml'],
-      },
-    ],
-    precio: 29.5,
-  },
-  {
-    id: 3,
-    nombre: 'Linea infantil',
-    descripcion:
-      'Agua purificada presentada en botellas con diseños coloridos, adaptados para niños. Las botellas ergonómicas, seguras, fáciles de abrir y con personajes infantiles que fomentan el consumo saludable de agua.',
-    imagen: 'templates/template_1920x1080.png',
-    presentaciones: [
-      {
-        tipo: 'Botella',
-        tamaños: ['300 ml'],
-      },
-    ],
-    precio: 89.0,
-  },
-  {
-    id: 4,
-    nombre: 'Linea premium',
-    descripcion:
-      'Agua tratada con procesos de alta calidad, ideal para consumomidores comprometidos con el ambiente  con sabores naturales: limon, frutos rojos, frutos amarillos.  sin calorias 100% natural.',
-    presentaciones: [
-      {
-        tipo: 'Botella',
-        tamaños: ['300 ml', '600 ml'],
-      },
-    ],
-    imagen: 'templates/template_1920x1080.png',
-    precio: 34.75,
-  },
-]
-
 type TProduct = {
   id: number
   name: string
@@ -112,6 +44,7 @@ const renderRightImageProduct: FC<TProduct> = ({
               rowGap: 3,
               alignItems: 'center',
               justifyContent: 'center',
+              px: 2,
             }}
           >
             <Stack
@@ -120,47 +53,103 @@ const renderRightImageProduct: FC<TProduct> = ({
                 rowGap: 2,
                 alignItems: 'center',
                 justifyContent: 'center',
-                px: 2,
               }}
             >
               <Typography variant="h5" sx={{ color: 'text.primary' }}>
                 {name}
               </Typography>
-              <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+              <Typography variant="subtitle1" sx={{ color: 'text.secondary' }}>
                 {description}
               </Typography>
             </Stack>
             <Stack
-              sx={{ flexDirection: 'row', columnGap: 3, flexWrap: 'wrap' }}
+              sx={{
+                width: 1,
+              }}
             >
-              {[...new Set(presentations.map((p) => p.tipo))].map((tipo) => {
-                const itemsByType = presentations.filter((p) => p.tipo === tipo)
+              <Grid
+                container
+                spacing={2}
+                sx={{
+                  width: 1,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                {[...new Set(presentations.map((p) => p.tipo))].map((tipo) => {
+                  const itemsByType = presentations.filter(
+                    (p) => p.tipo === tipo,
+                  )
 
-                return (
-                  <Stack
-                    key={tipo}
-                    sx={{
-                      bgcolor: theme.palette.primary[300],
-                      borderRadius: 2,
-                      p: 2,
-                      minWidth: 120,
-                      alignItems: 'center',
-                    }}
-                  >
-                    <Typography
-                      sx={{ fontWeight: 'bold', textTransform: 'capitalize' }}
-                    >
-                      {tipo}
-                    </Typography>
-
-                    {itemsByType.map(({ tamaño, price }, i) => (
-                      <Typography key={i} sx={{ fontSize: '0.75rem' }}>
-                        {tamaño} ml — ${price.toLocaleString()}
-                      </Typography>
-                    ))}
-                  </Stack>
-                )
-              })}
+                  return (
+                    <Grid size={{ xs: 12, lg: 3 }} key={tipo}>
+                      <Stack
+                        sx={{
+                          width: 1,
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                        }}
+                      >
+                        <motion.div
+                          initial={{
+                            opacity: 0,
+                            background: `linear-gradient(135deg, #fff 0%,  ${theme.palette.primary.main}22 50%, #fff 100%)`,
+                          }}
+                          animate={{ opacity: 1 }}
+                          whileHover={{
+                            scale: 1.01,
+                            background: `linear-gradient(135deg, ${theme.palette.primary.main}22 0%, #fff 50%, ${theme.palette.primary.main}22 100%)`,
+                          }}
+                          transition={{
+                            duration: 0.5,
+                            ease: 'easeOut',
+                          }}
+                        >
+                          <Stack
+                            sx={{
+                              boxShadow: 2,
+                              ':hover': {
+                                cursor: 'pointer',
+                              },
+                            }}
+                          >
+                            <Stack
+                              sx={{
+                                p: 1,
+                                rowGap: 2,
+                                width: 200,
+                                height: 150,
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                              }}
+                            >
+                              <Stack sx={{ rowGap: 1 }}>
+                                <Typography
+                                  variant="h5"
+                                  sx={{ fontSize: '1rem !important' }}
+                                >
+                                  {tipo}
+                                </Typography>
+                                {itemsByType.map(({ tamaño, price }, i) => (
+                                  <Typography
+                                    key={i}
+                                    sx={{
+                                      fontWeight: 'bold',
+                                      fontSize: '0.75rem',
+                                    }}
+                                  >
+                                    {tamaño} ml — {price.toLocaleString()} COP
+                                  </Typography>
+                                ))}
+                              </Stack>
+                            </Stack>
+                          </Stack>
+                        </motion.div>
+                      </Stack>
+                    </Grid>
+                  )
+                })}
+              </Grid>
             </Stack>
           </Stack>
         </motion.div>
@@ -267,7 +256,8 @@ const renderLeftImageProduct = ({
               <Stack
                 sx={{
                   width: 1,
-                  rowGap: 2,
+                  height: 1,
+                  rowGap: 3,
                   alignItems: 'center',
                   justifyContent: 'center',
                   px: 2,
@@ -276,43 +266,99 @@ const renderLeftImageProduct = ({
                 <Typography variant="h5" sx={{ color: 'text.primary' }}>
                   {name}
                 </Typography>
-                <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+                <Typography
+                  variant="subtitle1"
+                  sx={{ color: 'text.secondary' }}
+                >
                   {description}
                 </Typography>
               </Stack>
-              <Stack
-                sx={{ flexDirection: 'row', columnGap: 3, flexWrap: 'wrap' }}
-              >
-                {[...new Set(presentations.map((p) => p.tipo))].map((tipo) => {
-                  const itemsByType = presentations.filter(
-                    (p) => p.tipo === tipo,
-                  )
+              <Stack sx={{ width: 1 }}>
+                <Grid
+                  container
+                  spacing={2}
+                  sx={{
+                    width: 1,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                >
+                  {[...new Set(presentations.map((p) => p.tipo))].map(
+                    (tipo) => {
+                      const itemsByType = presentations.filter(
+                        (p) => p.tipo === tipo,
+                      )
 
-                  return (
-                    <Stack
-                      key={tipo}
-                      sx={{
-                        bgcolor: theme.palette.primary[300],
-                        borderRadius: 2,
-                        p: 2,
-                        minWidth: 120,
-                        alignItems: 'center',
-                      }}
-                    >
-                      <Typography
-                        sx={{ fontWeight: 'bold', textTransform: 'capitalize' }}
-                      >
-                        {tipo}
-                      </Typography>
-
-                      {itemsByType.map(({ tamaño, price }, i) => (
-                        <Typography key={i} sx={{ fontSize: '0.75rem' }}>
-                          {tamaño} ml — ${price.toLocaleString()}
-                        </Typography>
-                      ))}
-                    </Stack>
-                  )
-                })}
+                      return (
+                        <Grid size={{ xs: 12, lg: 3 }} key={tipo}>
+                          <Stack
+                            sx={{
+                              width: 1,
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                            }}
+                          >
+                            <motion.div
+                              initial={{
+                                opacity: 0,
+                                background: `linear-gradient(135deg,  ${theme.palette.primary.main}22 0%, #fff 50%,  ${theme.palette.primary.main}22 100%)`,
+                              }}
+                              animate={{ opacity: 1 }}
+                              whileHover={{
+                                scale: 1.01,
+                                background: `linear-gradient(135deg, #fff 0%, ${theme.palette.primary.main}22 50%, #fff 100%)`,
+                              }}
+                              transition={{
+                                duration: 0.5,
+                                ease: 'easeOut',
+                              }}
+                            >
+                              <Stack
+                                sx={{
+                                  boxShadow: 2,
+                                  ':hover': {
+                                    cursor: 'pointer',
+                                  },
+                                }}
+                              >
+                                <Stack
+                                  sx={{
+                                    p: 1,
+                                    rowGap: 2,
+                                    width: 200,
+                                    height: 150,
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                  }}
+                                >
+                                  <Stack sx={{ rowGap: 1 }}>
+                                    <Typography
+                                      variant="h5"
+                                      sx={{ fontSize: '1rem !important' }}
+                                    >
+                                      {tipo}
+                                    </Typography>
+                                    {itemsByType.map(({ tamaño, price }, i) => (
+                                      <Typography
+                                        key={i}
+                                        sx={{
+                                          fontWeight: 'bold',
+                                          fontSize: '0.75rem',
+                                        }}
+                                      >
+                                        {tamaño} ml — ${price.toLocaleString()}
+                                      </Typography>
+                                    ))}
+                                  </Stack>
+                                </Stack>
+                              </Stack>
+                            </motion.div>
+                          </Stack>
+                        </Grid>
+                      )
+                    },
+                  )}
+                </Grid>
               </Stack>
             </Stack>
           </motion.div>

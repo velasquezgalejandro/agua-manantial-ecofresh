@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Agua normal sin gas",
-    "description": "Agua normal sin gas",
+    "description": "Agua tratada con procesos de alta calidad, ideal para consumo diario en hogares, empresas e instituciones. Producto sin saborizantes, ni calorias 100% natural.",
     "imagen": "templates/template_1920x1080.png",
     "presentations": [
       { "tipo": "bolsa", "tamaño": 350, "price": 5000},
@@ -15,7 +15,7 @@
   {
     "id": 2,
     "name": "Linea ecologica ecofresh",
-    "description": "Linea ecologica ecofresh",
+    "description":  "Agua de lluvia recolectada , tratada, filtrada y purificada con tecnología sostenible. Se entrega en envases reciclables. Ideal para consumidores comprometidos con el medio ambiente.",
     "imagen": "templates/template_1920x1080.png",
     "presentations": [
       { "tipo": "bolsa", "tamaño": 350, "price": 4000 },
@@ -37,7 +37,7 @@
   {
     "id": 4,
     "name": "Linea premium",
-    "description": "Linea premium",
+    "description": "Agua tratada con procesos de alta calidad, ideal para consumomidores comprometidos con el ambiente  con sabores naturales: limon, frutos rojos, frutos amarillos.  sin calorias 100% natural." ,
     "imagen": "templates/template_1920x1080.png",
     "presentations": [
       { "tipo": "botella", "tamaño": 300, "price": 3000 },
