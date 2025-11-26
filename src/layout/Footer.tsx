@@ -12,10 +12,12 @@ import InstagramIcon from '@mui/icons-material/Instagram'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { useTheme } from '@mui/material/styles'
 import { motion } from 'framer-motion'
+import { useScroll } from '~context/ScrollContext'
 
 export const Footer = () => {
   const theme = useTheme()
   const isBiggerThanMd = useMediaQuery(theme.breakpoints.down('smh'))
+  const { scrollTo } = useScroll()
 
   const renderIconText = (Icon: any, text: string) => (
     <Stack direction="row" spacing={1} alignItems="center">
@@ -24,21 +26,17 @@ export const Footer = () => {
     </Stack>
   )
 
-  const MotionIconButton = motion(IconButton)
+  const renderSections = (section: string, label: string) => (
+    <Typography
+      variant="body2"
+      onClick={() => scrollTo(section)}
+      style={{ cursor: 'pointer' }}
+    >
+      {label}
+    </Typography>
+  )
 
-  //   <MotionIconButton
-  //   whileHover={{
-  //     scale: 1.2,
-  //     rotate: 10,
-  //     transition: { type: "spring", stiffness: 300 },
-  //   }}
-  //   whileTap={{ scale: 0.9 }}
-  //   sx={{
-  //     color: "error.main",
-  //   }}
-  // >
-  //   <FavoriteIcon />
-  // </MotionIconButton>
+  const MotionIconButton = motion(IconButton)
 
   const renderIconMedia = (Icon: any, enlace: string) => (
     <MotionIconButton
@@ -114,9 +112,15 @@ export const Footer = () => {
           }
           sx={{ width: '100%' }}
         >
-          <Box>
-            <Typography variant="body2">Exploranos</Typography>
-          </Box>
+          <Stack spacing={1} alignItems="center">
+            <Typography variant="h6">Exploranos</Typography>
+            <Stack alignItems="flex-start">
+              {renderSections('home', 'Inicio')}
+              {renderSections('product', 'Nuestros productos')}
+              {renderSections('sustainability', 'Sobre nosotros')}
+              {renderSections('future', 'Compromiso con el futuro')}
+            </Stack>
+          </Stack>
           <Stack
             spacing={1}
             alignItems={isBiggerThanMd ? 'center' : 'flex-start'}
