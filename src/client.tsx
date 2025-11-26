@@ -5,6 +5,7 @@ import { enableMocking } from './mocks/enable'
 import { queryClient } from '~routes/-router'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { ScrollProvider } from '~context/ScrollContext'
 
 async function main() {
   await enableMocking()
@@ -13,7 +14,9 @@ async function main() {
     document,
     <StrictMode>
       <QueryClientProvider client={queryClient}>
-        <StartClient />
+        <ScrollProvider>
+          <StartClient />
+        </ScrollProvider>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </StrictMode>,

@@ -51,7 +51,7 @@ const dummyData = [
   },
 ]
 
-export const SustainabilityView = () => {
+export const SustainabilityView = ({ ref }) => {
   const renderCard = (titulo, Icono, descripcion, color) => {
     return (
       <Grid size={{ xs: 12, smh: 6 }} sx={{}} key={titulo}>
@@ -65,10 +65,6 @@ export const SustainabilityView = () => {
           <motion.div
             initial={{ opacity: 0 }} // Estado inicial
             animate={{ opacity: 1 }} // Estado final
-            // whileHover={{
-            //   scale: 1.03,
-            //   boxShadow: `0px 0px 18px ${color}55`,
-            // }}
             whileHover={{
               scale: 1.02,
               background: `linear-gradient(135deg, ${color}22 0%, #fff 50%, ${color}22 100%)`,
@@ -110,7 +106,7 @@ export const SustainabilityView = () => {
   }
 
   return (
-    <GenericContainer sx={{ pb: 0, px: 0 }}>
+    <GenericContainer sx={{ pb: 0, px: 0 }} ref={ref}>
       <Stack sx={{ rowGap: 6, width: 1 }}>
         <Typography variant="h4" align="center">
           Nuestro compromiso con la sostenibilidad

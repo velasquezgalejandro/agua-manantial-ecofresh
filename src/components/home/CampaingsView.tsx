@@ -42,7 +42,7 @@ const evento = [
   },
 ]
 
-export const CampaingsView = () => {
+export const CampaingsView = ({ ref }) => {
   const { data: eventosData, isLoading, isError } = useGetEventosData()
 
   if (isLoading) {
@@ -57,6 +57,7 @@ export const CampaingsView = () => {
 
   return (
     <GenericContainer
+      ref={ref}
       sx={{
         position: 'relative',
         overflow: 'hidden',

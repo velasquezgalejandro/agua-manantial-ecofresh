@@ -6,7 +6,7 @@ import Paper from '@mui/material/Paper'
 import Divider from '@mui/material/Divider'
 import Box from '@mui/material/Box'
 
-export const FutureView = () => {
+export const FutureView = ({ ref }) => {
   const items = [
     `Se producirá: línea Premium y línea ecológica Ecofresh, todas con enfoque saludable, seguro y educativo, comprometidos con el medio ambiente.`,
     `Promovemos sensibilización ambiental mediante estrategias de reforestación con clientes comprometidos con el medio ambiente.`,
@@ -15,6 +15,7 @@ export const FutureView = () => {
 
   return (
     <GenericContainer
+      ref={ref}
       sx={{
         position: 'relative',
         overflow: 'hidden',

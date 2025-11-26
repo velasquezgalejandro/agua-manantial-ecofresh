@@ -10,7 +10,7 @@ import { VisionOption } from '~home/VisionOption.tsx'
 import { WeHistoryOption } from '~home/WeHistoryOption'
 import { motion } from 'framer-motion'
 
-export const HistoryView = () => {
+export const HistoryView = ({ ref }) => {
   const theme = useTheme()
   const [alignment, setAlignment] = useState('option2')
 
@@ -64,6 +64,7 @@ export const HistoryView = () => {
   return (
     <>
       <Box
+        ref={ref}
         component="div"
         sx={{
           position: 'relative',

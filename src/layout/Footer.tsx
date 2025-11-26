@@ -11,6 +11,7 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { useTheme } from '@mui/material/styles'
+import { motion } from 'framer-motion'
 
 export const Footer = () => {
   const theme = useTheme()
@@ -23,15 +24,38 @@ export const Footer = () => {
     </Stack>
   )
 
+  const MotionIconButton = motion(IconButton)
+
+  //   <MotionIconButton
+  //   whileHover={{
+  //     scale: 1.2,
+  //     rotate: 10,
+  //     transition: { type: "spring", stiffness: 300 },
+  //   }}
+  //   whileTap={{ scale: 0.9 }}
+  //   sx={{
+  //     color: "error.main",
+  //   }}
+  // >
+  //   <FavoriteIcon />
+  // </MotionIconButton>
+
   const renderIconMedia = (Icon: any, enlace: string) => (
-    <IconButton
-      sx={{ border: 1, borderColor: 'primary.50', p: 1 }}
+    <MotionIconButton
+      whileHover={{
+        x: [0, -4, 4, -4, 4, 0], // patrón de vibración
+        transition: {
+          duration: 0.4,
+          repeat: 0,
+        },
+      }}
+      whileTap={{ scale: 0.9 }}
+      sx={{ border: 1, borderColor: 'primary.50', p: 0.5 }}
       href={enlace}
       target="_blank"
-      rel="noopener"
     >
       <Icon sx={{ color: 'primary.50', fontSize: 24 }} />
-    </IconButton>
+    </MotionIconButton>
   )
 
   return (
@@ -90,6 +114,9 @@ export const Footer = () => {
           }
           sx={{ width: '100%' }}
         >
+          <Box>
+            <Typography variant="body2">Exploranos</Typography>
+          </Box>
           <Stack
             spacing={1}
             alignItems={isBiggerThanMd ? 'center' : 'flex-start'}
@@ -109,9 +136,6 @@ export const Footer = () => {
             {renderIconMedia(InstagramIcon, 'https://www.instagram.com')}
             {renderIconMedia(WhatsAppIcon, 'https://www.whatsapp.com')}
           </Stack>
-          <Box>
-            <Typography variant="body2">Información extra</Typography>
-          </Box>
         </Stack>
         <Typography variant="body2">
           © 2025 Todos los derechos reservados.

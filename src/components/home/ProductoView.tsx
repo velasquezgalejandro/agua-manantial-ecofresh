@@ -346,7 +346,8 @@ const renderLeftImageProduct = ({
                                           fontSize: '0.75rem',
                                         }}
                                       >
-                                        {tamaño} ml — ${price.toLocaleString()}
+                                        {tamaño} ml — {price.toLocaleString()}{' '}
+                                        COP
                                       </Typography>
                                     ))}
                                   </Stack>
@@ -393,7 +394,7 @@ const renderLeftImageProduct = ({
   )
 }
 
-export const ProductsView = () => {
+export const ProductsView = ({ ref }) => {
   const { data: dataProducts, isLoading, isError } = useGetProductosData()
 
   if (isLoading) return <div>Loading...</div>
@@ -402,7 +403,7 @@ export const ProductsView = () => {
   const data = Object.values(dataProducts)
 
   return (
-    <GenericContainer sx={{ pb: 0, px: 0 }}>
+    <GenericContainer sx={{ pb: 0, px: 0 }} ref={ref}>
       <Stack sx={{ rowGap: 6, width: 1 }}>
         <Typography variant="h3" align="center">
           Nuestros Productos

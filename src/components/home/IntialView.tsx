@@ -7,13 +7,17 @@ import { LiquidButtons } from '~utils/LiquidButtons.tsx'
 import { useTheme } from '@mui/material/styles'
 import { motion } from 'framer-motion'
 import useMediaQuery from '@mui/material/useMediaQuery'
+import { useScroll } from '~context/ScrollContext'
 
-export const InitialView = () => {
+export const InitialView = ({ ref }) => {
+  const { scrollTo } = useScroll()
+
   const isBiggerThanSmh = useMediaQuery((theme) => theme.breakpoints.up('smh'))
   const theme = useTheme()
   return (
     // Intentar box externo
     <Box
+      ref={ref}
       sx={{
         height: '80dvh',
         backgroundImage: `url('templates/template_1920x1080.png')`,
@@ -100,6 +104,7 @@ export const InitialView = () => {
                   label={'Nuestros Productos'}
                   buttonAnimationColor={theme.palette.primary[900]}
                   sx={{ bgcolor: theme.palette.primary[600], width: 200 }}
+                  action={() => scrollTo('product')}
                 />
                 <LiquidButtons
                   label={'Conocenos'}
