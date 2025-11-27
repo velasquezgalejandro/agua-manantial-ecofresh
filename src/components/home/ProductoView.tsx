@@ -3,8 +3,13 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
+import Accordion from '@mui/material/Accordion'
+import AccordionSummary from '@mui/material/AccordionSummary'
+import AccordionDetails from '@mui/material/AccordionDetails'
+import { ChevronDown } from 'lucide-react'
 import { GenericContainer } from '~utils/GenericContainer'
 import { LiquidButtons } from '~utils/LiquidButtons'
+import useMediaQuery from '@mui/material/useMediaQuery'
 import { useTheme } from '@mui/material/styles'
 import { motion } from 'framer-motion'
 import { useGetProductosData } from '~server/hooks/useGetProductos'
@@ -17,13 +22,10 @@ type TProduct = {
   presentations: Record<string, string>[]
 }
 
-const renderRightImageProduct: FC<TProduct> = ({
-  id,
-  name,
-  description,
-  imagen,
-  presentations,
-}) => {
+const renderRightImageProduct: FC<TProduct> = (
+  { id, name, description, imagen, presentations },
+  isBiggerThanXl,
+) => {
   const theme = useTheme()
 
   return (
@@ -69,7 +71,7 @@ const renderRightImageProduct: FC<TProduct> = ({
             >
               <Grid
                 container
-                spacing={2}
+                spacing={{ xs: 0, xl: 2 }}
                 sx={{
                   width: 1,
                   justifyContent: 'center',
@@ -82,7 +84,7 @@ const renderRightImageProduct: FC<TProduct> = ({
                   )
 
                   return (
-                    <Grid size={{ xs: 12, lg: 3 }} key={tipo}>
+                    <Grid size={{ xs: 12, xl: 3 }} key={tipo}>
                       <Stack
                         sx={{
                           width: 1,
@@ -90,61 +92,97 @@ const renderRightImageProduct: FC<TProduct> = ({
                           alignItems: 'center',
                         }}
                       >
-                        <motion.div
-                          initial={{
-                            opacity: 0,
-                            background: `linear-gradient(135deg, #fff 0%,  ${theme.palette.primary.main}22 50%, #fff 100%)`,
-                          }}
-                          animate={{ opacity: 1 }}
-                          whileHover={{
-                            scale: 1.01,
-                            background: `linear-gradient(135deg, ${theme.palette.primary.main}22 0%, #fff 50%, ${theme.palette.primary.main}22 100%)`,
-                          }}
-                          transition={{
-                            duration: 0.5,
-                            ease: 'easeOut',
-                          }}
-                        >
-                          <Stack
-                            sx={{
-                              boxShadow: 2,
-                              ':hover': {
-                                cursor: 'pointer',
-                              },
+                        {isBiggerThanXl ? (
+                          <motion.div
+                            initial={{
+                              opacity: 0,
+                              background: `linear-gradient(135deg, #fff 0%,  ${theme.palette.primary.main}22 50%, #fff 100%)`,
                             }}
+                            animate={{ opacity: 1 }}
+                            whileHover={{
+                              scale: 1.01,
+                              background: `linear-gradient(135deg, ${theme.palette.primary.main}22 0%, #fff 50%, ${theme.palette.primary.main}22 100%)`,
+                            }}
+                            transition={{
+                              duration: 0.5,
+                              ease: 'easeOut',
+                            }}
+                            style={{ width: '100%' }}
                           >
                             <Stack
                               sx={{
-                                p: 1,
-                                rowGap: 2,
-                                width: 200,
-                                height: 150,
-                                alignItems: 'center',
-                                justifyContent: 'center',
+                                boxShadow: 2,
+                                ':hover': {
+                                  cursor: 'pointer',
+                                },
                               }}
                             >
+                              <Stack
+                                sx={{
+                                  p: 1,
+                                  rowGap: 2,
+                                  width: 180,
+                                  height: 150,
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
+                                }}
+                              >
+                                <Stack sx={{ rowGap: 1 }}>
+                                  <Typography
+                                    variant="h5"
+                                    sx={{ fontSize: '1rem !important' }}
+                                  >
+                                    {tipo}
+                                  </Typography>
+                                  {itemsByType.map(({ tamaño, price }, i) => (
+                                    <Typography
+                                      key={i}
+                                      sx={{
+                                        fontWeight: 'bold',
+                                        fontSize: '0.75rem',
+                                      }}
+                                    >
+                                      {tamaño} ml — {price.toLocaleString()} COP
+                                    </Typography>
+                                  ))}
+                                </Stack>
+                              </Stack>
+                            </Stack>
+                          </motion.div>
+                        ) : (
+                          <Accordion
+                            sx={{
+                              width: '100%',
+                              boxShadow: 2,
+                              background: `linear-gradient(135deg, #fff 0%,  ${theme.palette.primary.main}22 50%, #fff 100%)`,
+                            }}
+                          >
+                            <AccordionSummary expandIcon={<ChevronDown />}>
+                              <Typography
+                                variant="h6"
+                                sx={{ fontSize: '1rem', fontWeight: 'bold' }}
+                              >
+                                {tipo}
+                              </Typography>
+                            </AccordionSummary>
+
+                            <AccordionDetails>
                               <Stack sx={{ rowGap: 1 }}>
-                                <Typography
-                                  variant="h5"
-                                  sx={{ fontSize: '1rem !important' }}
-                                >
-                                  {tipo}
-                                </Typography>
                                 {itemsByType.map(({ tamaño, price }, i) => (
                                   <Typography
                                     key={i}
                                     sx={{
                                       fontWeight: 'bold',
-                                      fontSize: '0.75rem',
+                                      fontSize: '0.85rem',
                                     }}
                                   >
                                     {tamaño} ml — {price.toLocaleString()} COP
                                   </Typography>
                                 ))}
                               </Stack>
-                            </Stack>
-                          </Stack>
-                        </motion.div>
+                            </AccordionDetails>
+                          </Accordion>
+                        )}
                       </Stack>
                     </Grid>
                   )
@@ -177,14 +215,12 @@ const renderRightImageProduct: FC<TProduct> = ({
   )
 }
 
-const renderLeftImageProduct = ({
-  id,
-  name,
-  description,
-  imagen,
-  presentations,
-}) => {
+const renderLeftImageProduct = (
+  { id, name, description, imagen, presentations },
+  isBiggerThanXl,
+) => {
   const theme = useTheme()
+
   return (
     <Stack key={id}>
       <Box
@@ -276,7 +312,7 @@ const renderLeftImageProduct = ({
               <Stack sx={{ width: 1 }}>
                 <Grid
                   container
-                  spacing={2}
+                  spacing={{ xs: 0, xl: 2 }}
                   sx={{
                     width: 1,
                     justifyContent: 'center',
@@ -298,52 +334,94 @@ const renderLeftImageProduct = ({
                               alignItems: 'center',
                             }}
                           >
-                            <motion.div
-                              initial={{
-                                opacity: 0,
-                                background: `linear-gradient(135deg,  ${theme.palette.primary.main}22 0%, #fff 50%,  ${theme.palette.primary.main}22 100%)`,
-                              }}
-                              animate={{ opacity: 1 }}
-                              whileHover={{
-                                scale: 1.01,
-                                background: `linear-gradient(135deg, #fff 0%, ${theme.palette.primary.main}22 50%, #fff 100%)`,
-                              }}
-                              transition={{
-                                duration: 0.5,
-                                ease: 'easeOut',
-                              }}
-                            >
-                              <Stack
-                                sx={{
-                                  boxShadow: 2,
-                                  ':hover': {
-                                    cursor: 'pointer',
-                                  },
+                            {isBiggerThanXl ? (
+                              <motion.div
+                                initial={{
+                                  opacity: 0,
+                                  background: `linear-gradient(135deg, #fff 0%,  ${theme.palette.primary.main}22 50%, #fff 100%)`,
                                 }}
+                                animate={{ opacity: 1 }}
+                                whileHover={{
+                                  scale: 1.01,
+                                  background: `linear-gradient(135deg, ${theme.palette.primary.main}22 0%, #fff 50%, ${theme.palette.primary.main}22 100%)`,
+                                }}
+                                transition={{
+                                  duration: 0.5,
+                                  ease: 'easeOut',
+                                }}
+                                style={{ width: '100%' }}
                               >
                                 <Stack
                                   sx={{
-                                    p: 1,
-                                    rowGap: 2,
-                                    width: 200,
-                                    height: 150,
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
+                                    boxShadow: 2,
+                                    ':hover': {
+                                      cursor: 'pointer',
+                                    },
                                   }}
                                 >
+                                  <Stack
+                                    sx={{
+                                      p: 1,
+                                      rowGap: 2,
+                                      width: 180,
+                                      height: 150,
+                                      alignItems: 'center',
+                                      justifyContent: 'center',
+                                    }}
+                                  >
+                                    <Stack sx={{ rowGap: 1 }}>
+                                      <Typography
+                                        variant="h5"
+                                        sx={{ fontSize: '1rem !important' }}
+                                      >
+                                        {tipo}
+                                      </Typography>
+                                      {itemsByType.map(
+                                        ({ tamaño, price }, i) => (
+                                          <Typography
+                                            key={i}
+                                            sx={{
+                                              fontWeight: 'bold',
+                                              fontSize: '0.75rem',
+                                            }}
+                                          >
+                                            {tamaño} ml —{' '}
+                                            {price.toLocaleString()} COP
+                                          </Typography>
+                                        ),
+                                      )}
+                                    </Stack>
+                                  </Stack>
+                                </Stack>
+                              </motion.div>
+                            ) : (
+                              <Accordion
+                                sx={{
+                                  width: '100%',
+                                  boxShadow: 2,
+                                  background: `linear-gradient(135deg, #fff 0%,  ${theme.palette.primary.main}22 50%, #fff 100%)`,
+                                }}
+                              >
+                                <AccordionSummary expandIcon={<ChevronDown />}>
+                                  <Typography
+                                    variant="h6"
+                                    sx={{
+                                      fontSize: '1rem',
+                                      fontWeight: 'bold',
+                                    }}
+                                  >
+                                    {tipo}
+                                  </Typography>
+                                </AccordionSummary>
+
+                                <AccordionDetails>
                                   <Stack sx={{ rowGap: 1 }}>
-                                    <Typography
-                                      variant="h5"
-                                      sx={{ fontSize: '1rem !important' }}
-                                    >
-                                      {tipo}
-                                    </Typography>
                                     {itemsByType.map(({ tamaño, price }, i) => (
                                       <Typography
                                         key={i}
                                         sx={{
                                           fontWeight: 'bold',
-                                          fontSize: '0.75rem',
+                                          fontSize: '0.85rem',
                                         }}
                                       >
                                         {tamaño} ml — {price.toLocaleString()}{' '}
@@ -351,9 +429,9 @@ const renderLeftImageProduct = ({
                                       </Typography>
                                     ))}
                                   </Stack>
-                                </Stack>
-                              </Stack>
-                            </motion.div>
+                                </AccordionDetails>
+                              </Accordion>
+                            )}
                           </Stack>
                         </Grid>
                       )
@@ -395,6 +473,7 @@ const renderLeftImageProduct = ({
 }
 
 export const ProductsView = ({ ref }) => {
+  const isBiggerThanXl = useMediaQuery((theme) => theme.breakpoints.up('xl'))
   const { data: dataProducts, isLoading, isError } = useGetProductosData()
 
   if (isLoading) return <div>Loading...</div>
@@ -412,8 +491,8 @@ export const ProductsView = ({ ref }) => {
           {data?.map((product, index) => {
             const isEven = index % 2 === 0
             return isEven
-              ? renderRightImageProduct(product)
-              : renderLeftImageProduct(product)
+              ? renderRightImageProduct(product, isBiggerThanXl)
+              : renderLeftImageProduct(product, isBiggerThanXl)
           })}
         </Stack>
       </Stack>
