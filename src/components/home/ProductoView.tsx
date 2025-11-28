@@ -287,6 +287,7 @@ const renderLeftImageProduct = (
                 rowGap: 3,
                 alignItems: 'center',
                 justifyContent: 'center',
+                px: 2,
               }}
             >
               <Stack

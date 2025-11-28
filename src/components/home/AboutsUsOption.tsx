@@ -5,15 +5,22 @@ import Typography from '@mui/material/Typography'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import ListItemIcon from '@mui/material/ListItemIcon'
+import SvgIcon from '@mui/material/SvgIcon'
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded'
+import Paper from '@mui/material/Paper'
 import { motion } from 'framer-motion'
+import { Heart } from 'lucide-react'
+import { Lightbulb } from 'lucide-react'
+import { Leaf } from 'lucide-react'
+import { Eye } from 'lucide-react'
+import { Handshake } from 'lucide-react'
 
 const values = [
-  'Bienestar',
-  'Innovación',
-  'Sostenibilidad',
-  'Transparencia',
-  'Responsabilidad social',
+  { label: 'Bienestar', icon: Heart, color: '#ff0000' },
+  { label: 'Innovación', icon: Lightbulb, color: '#4b4b0070' },
+  { label: 'Sostenibilidad', icon: Leaf, color: '#1e4b1eff' },
+  { label: 'Transparencia', icon: Eye, color: '#05022cff' },
+  { label: 'Responsabilidad social', icon: Handshake, color: '#000000' },
 ]
 
 export const AboutsUsOption = () => {
@@ -30,37 +37,78 @@ export const AboutsUsOption = () => {
             }}
             style={{ width: '100%' }}
           >
-            <Stack spacing={4}>
-              <Stack spacing={1}>
+            <Stack spacing={3}>
+              <Paper
+                elevation={3}
+                sx={{
+                  // p: 3,
+                  width: 1,
+                  borderRadius: 3,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  gap: 1.5,
+                  px: 2,
+                  py: 1,
+                }}
+              >
                 <Typography variant="h4" fontWeight="bold" align="center">
                   ¿Quiénes somos?
                 </Typography>
-                <Typography
-                  variant="subtitle1"
-                  textAlign="center"
-                  sx={{ px: 2 }}
-                >
+                <Typography variant="subtitle1" textAlign="center" sx={{}}>
                   Somos una empresa comprometida con el bienestar integral, el
                   cuidado ambiental y la sostenibilidad social.
                 </Typography>
-              </Stack>
-
-              <Stack spacing={2}>
+              </Paper>
+              <Paper
+                elevation={3}
+                sx={{
+                  width: 1,
+                  borderRadius: 3,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  gap: 1.5,
+                  px: 2,
+                  py: 1,
+                }}
+              >
                 <Typography variant="h4" fontWeight="bold" align="center">
-                  Nuestros valores
+                  Nuestros Valores
                 </Typography>
-
-                <List sx={{ px: 4 }}>
-                  {values.map((text) => (
+                <Stack sx={{ width: 1 }}>
+                  {values.map((value) => {
+                    const { label, icon: Icon, color } = value
+                    return (
+                      <Typography
+                        variant="subtitle1"
+                        key={label}
+                        sx={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: 1,
+                          py: 0.3,
+                        }}
+                      >
+                        <SvgIcon sx={{ fontSize: '1rem', color }}>
+                          <Icon />
+                        </SvgIcon>
+                        {label}
+                      </Typography>
+                    )
+                  })}
+                  {/* {values.map((text) => (
                     <ListItem key={text} disablePadding sx={{ py: 0.3 }}>
                       <ListItemIcon sx={{ minWidth: 32 }}>
                         <CheckCircleRoundedIcon sx={{ fontSize: 22 }} />
                       </ListItemIcon>
                       <Typography variant="subtitle1">{text}</Typography>
                     </ListItem>
-                  ))}
-                </List>
-              </Stack>
+                  ))} */}
+                </Stack>
+              </Paper>
             </Stack>
           </motion.div>
         </Grid>

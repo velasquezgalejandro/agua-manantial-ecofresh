@@ -12,7 +12,7 @@ import { motion } from 'framer-motion'
 
 export const HistoryView = ({ ref }) => {
   const theme = useTheme()
-  const [alignment, setAlignment] = useState('option2')
+  const [alignment, setAlignment] = useState('option1')
 
   const handleChange = (event, newAlignment) => {
     if (newAlignment !== null) {
