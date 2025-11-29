@@ -13,52 +13,52 @@ import Button from '@mui/material/Button'
 import Paper from '@mui/material/Paper'
 import { useGetTimelineData } from '~server/hooks/useGetTimeline'
 
-const events = [
-  {
-    id: 1,
-    year: 'Inicio',
-    title: 'Problemas',
-    descripcion:
-      '¿Cómo nació la compañía?  Remitámonos a 2023. Colombia era un país con una sociedad en la que  persisten desafíos como: Falta de acceso constante a agua potable de calidad, especialmente en sectores rurales o en expansión. El mundo, por su parte, se debatía en la generación indiscriminada de residuos plásticos de un solo uso, que afectan el medio ambiente.',
-  },
-  {
-    id: 2,
-    year: '2023',
-    title: 'Necesidades',
-    descripcion:
-      'Las personas se distinguían por la poca conciencia sobre el consumo sostenible y reutilización de envases. Al tiempo la baja oferta de productos de agua que sean saludables, accesibles, infantiles  y a la vez amigables con el ambiente era limitada. Se crea la preocupación por la falta de un producto que mezclara estas  características.',
-  },
-  {
-    id: 3,
-    year: '2024',
-    title: 'Nuestro inicio',
-    descripcion:
-      'Mas tarde en el 2024, en Mocoa se plantaba la primera semilla de nuestra empresa. Melba Narvaez Garzon  una mujer empoderada, madre cabeza de familia nariñense de Pasto. Tubo la oportunidad de comercializar productos de una empresa de agua purificada y tratada. Durante ese tiempo aprendió el proceso de producción del agua incluyendo manejo de equipos de filtración, rayos ultravioleta y empaque utilizando maquinas selladoras y etiquetadoras de bolsas.',
-    color: 'success',
-  },
-  {
-    id: 4,
-    year: '2025',
-    title: 'Nace Ecofresh',
-    descripcion:
-      'Evolucionamos con propósito firme no solo de ofrecer un producto de calidad si no también con compromiso ambiental. Fue así como en el 2025 nació Ecofresh, asumiendo un reto ambicioso al éxito, nuestros primeros productos Agua normal sin gas y La linea infantil Toñíto, ha generado expectativa y cada día mas vallunos deciden beber nuestra agua. Cada vez se disfruta en mas hogares, jardines colegios, universidades, hoteles, gimnasios, empresas, discotecas, fiestas y conciertos. Ganándose  su espacio en la vida de los colombianos.',
-  },
-  {
-    id: 5,
-    year: '2025',
-    title: 'Un hogar propio: inauguramos nuestra planta de producción',
-    descripcion:
-      'Un hogar propio, reconocemos el valor fundamental de la infraestructura en el desarrollo y crecimiento de nuestra empresa es por eso que en el 2025 inauguramos en Jamundi, Valle nuestra planta de producción con compromiso ambiental. Nuestro lema " El sol nos da energía, el agua nos da fuerza „ de ahi que nuestra planta funciona con energía solar, nuestra linea ecológica - Ecofresh se realizara a partir de agua de Lluvia mediante un proceso de producción que inicia con la Recolección y Aprovechamiento Inteligente de la lluvia. Nuestros productos son empacados en empaques reciclables y reutilizables. Ademas innovamos con empaques y etiqueta con Código QR para que nuestros clientes y consumidores puedan estar continuamente informados acerca de nuestros avances.',
-  },
-  {
-    id: 6,
-    year: '2025',
-    title: 'Evolucion',
-    descripcion:
-      'Nuestra empresa evoluciona con una propuesta que no solo resuelve un problema de acceso y calidad, sino que sensibiliza, recicla, reforesta, reutiliza y genera empleo verde.',
-    color: 'success',
-  },
-]
+// const events = [
+//   {
+//     id: 1,
+//     year: 'Inicio',
+//     title: 'Problemas',
+//     descripcion:
+//       '¿Cómo nació la compañía?  Remitámonos a 2023. Colombia era un país con una sociedad en la que  persisten desafíos como: Falta de acceso constante a agua potable de calidad, especialmente en sectores rurales o en expansión. El mundo, por su parte, se debatía en la generación indiscriminada de residuos plásticos de un solo uso, que afectan el medio ambiente.',
+//   },
+//   {
+//     id: 2,
+//     year: '2023',
+//     title: 'Necesidades',
+//     descripcion:
+//       'Las personas se distinguían por la poca conciencia sobre el consumo sostenible y reutilización de envases. Al tiempo la baja oferta de productos de agua que sean saludables, accesibles, infantiles  y a la vez amigables con el ambiente era limitada. Se crea la preocupación por la falta de un producto que mezclara estas  características.',
+//   },
+//   {
+//     id: 3,
+//     year: '2024',
+//     title: 'Nuestro inicio',
+//     descripcion:
+//       'Mas tarde en el 2024, en Mocoa se plantaba la primera semilla de nuestra empresa. Melba Narvaez Garzon  una mujer empoderada, madre cabeza de familia nariñense de Pasto. Tubo la oportunidad de comercializar productos de una empresa de agua purificada y tratada. Durante ese tiempo aprendió el proceso de producción del agua incluyendo manejo de equipos de filtración, rayos ultravioleta y empaque utilizando maquinas selladoras y etiquetadoras de bolsas.',
+//     color: 'success',
+//   },
+//   {
+//     id: 4,
+//     year: '2025',
+//     title: 'Nace Ecofresh',
+//     descripcion:
+//       'Evolucionamos con propósito firme no solo de ofrecer un producto de calidad si no también con compromiso ambiental. Fue así como en el 2025 nació Ecofresh, asumiendo un reto ambicioso al éxito, nuestros primeros productos Agua normal sin gas y La linea infantil Toñíto, ha generado expectativa y cada día mas vallunos deciden beber nuestra agua. Cada vez se disfruta en mas hogares, jardines colegios, universidades, hoteles, gimnasios, empresas, discotecas, fiestas y conciertos. Ganándose  su espacio en la vida de los colombianos.',
+//   },
+//   {
+//     id: 5,
+//     year: '2025',
+//     title: 'Un hogar propio: inauguramos nuestra planta de producción',
+//     descripcion:
+//       'Un hogar propio, reconocemos el valor fundamental de la infraestructura en el desarrollo y crecimiento de nuestra empresa es por eso que en el 2025 inauguramos en Jamundi, Valle nuestra planta de producción con compromiso ambiental. Nuestro lema " El sol nos da energía, el agua nos da fuerza „ de ahi que nuestra planta funciona con energía solar, nuestra linea ecológica - Ecofresh se realizara a partir de agua de Lluvia mediante un proceso de producción que inicia con la Recolección y Aprovechamiento Inteligente de la lluvia. Nuestros productos son empacados en empaques reciclables y reutilizables. Ademas innovamos con empaques y etiqueta con Código QR para que nuestros clientes y consumidores puedan estar continuamente informados acerca de nuestros avances.',
+//   },
+//   {
+//     id: 6,
+//     year: '2025',
+//     title: 'Evolucion',
+//     descripcion:
+//       'Nuestra empresa evoluciona con una propuesta que no solo resuelve un problema de acceso y calidad, sino que sensibiliza, recicla, reforesta, reutiliza y genera empleo verde.',
+//     color: 'success',
+//   },
+// ]
 
 export const WeHistoryOption = () => {
   const { data: timelineData, isError, isLoading } = useGetTimelineData()
@@ -79,7 +79,7 @@ export const WeHistoryOption = () => {
                   transition: 'all 0.25s ease-in-out',
                 }}
               />
-              {index < events.length - 1 && <TimelineConnector />}
+              {index < data.length - 1 && <TimelineConnector />}
             </TimelineSeparator>
 
             <TimelineContent>
