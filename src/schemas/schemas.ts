@@ -21,7 +21,6 @@ export const TimelineSchema = object({
   title: string(),
   description: string(),
   year: string(),
-  date: string(),
   imagen: string(),
 })
 
