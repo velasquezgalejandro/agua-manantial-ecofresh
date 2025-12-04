@@ -4,6 +4,7 @@ import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import viteReact from '@vitejs/plugin-react'
 import viteTsConfigPaths from 'vite-tsconfig-paths'
 import tailwindcss from '@tailwindcss/vite'
+import { includes } from 'valibot'
 
 const config = defineConfig({
   plugins: [
@@ -25,6 +26,13 @@ const config = defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
+    coverage: {
+      provider: 'v8',
+      reporter: ['text'],
+      all: true,
+      exclude: ['node_modules/', 'tests/'],
+      include: ['src/**/*.{ts,tsx}'],
+    },
   },
 })
 

@@ -62,22 +62,21 @@ export const WeHistoryOption = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: index % 2 === 0 ? 'flex-start' : 'flex-end',
-                    color:
-                      selectedStep === ev.id
-                        ? 'primary.main'
-                        : 'text.secondary',
+                    border: 1,
+                    borderColor: 'primary.main',
+                    color: selectedStep === ev.id ? 'white' : 'text.primary',
                     px: 1.5,
                     py: 1,
                     transition: 'all 0.25s ease',
-                    // backgroundColor:
-                    //   selectedStep === ev.id
-                    //     ? 'primary.main + 20'
-                    //     : 'transparent',
+                    backgroundColor:
+                      selectedStep === ev.id
+                        ? 'primary.main + 20'
+                        : 'transparent',
                     boxShadow: selectedStep === ev.id ? 4 : 2,
-
                     '&:hover': {
                       color: 'primary.main',
-                      backgroundColor: 'grey.300', // nuevo
+                      boxShadow: selectedStep === ev.id ? 6 : 4,
+                      // backgroundColor: 'grey.300', // nuevo
                     },
                   }}
                 >
@@ -184,6 +183,7 @@ export const WeHistoryOption = () => {
       <Grid
         size={6}
         sx={{
+          boxShadow: 4,
           height: 1,
           overflowY: 'auto',
           bgcolor: 'primary.50',
