@@ -1,5 +1,3 @@
-import { useRef } from 'react'
-
 import { InitialView } from '~home/IntialView.tsx'
 import { ProductsView } from '~home/ProductoView.tsx'
 import { SustainabilityView } from '~home/SustainabilityView.tsx'

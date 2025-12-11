@@ -6,6 +6,7 @@ import {
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import { ThemeProvider } from '~layout/ThemeProvider/themeProvider.tsx'
+import { NotFoundRoute } from '~views/NotFoundRoute'
 
 // import Header from '../components/Header'
 
@@ -42,6 +43,8 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
   }),
 
   shellComponent: RootDocument,
+  errorComponent: () => <div>There was an error</div>,
+  notFoundComponent: () => <NotFoundRoute />,
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {

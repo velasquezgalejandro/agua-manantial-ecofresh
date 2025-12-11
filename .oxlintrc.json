@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oxc-project/oxc/main/crates/oxc_linter/oxlintrc.schema.json",
+  "lints": {
+    // --- Básicos ---
+    "no-unused-vars": "error",
+    "unused-imports": "error",
+
+    // --- React + JS moderno ---
+    "react/no-unused-state": "warn",
+    "react/no-direct-mutation-state": "error",
+
+    // --- Código limpio ---
+    "eqeqeq": "error",
+    "no-console": "warn",
+
+    // --- Importaciones ---
+    "import/no-duplicates": "error",
+    "import/no-unresolved": "error"
+  }
+}

@@ -11,7 +11,11 @@ const App = () => {
   )
 }
 
-export const Route = createFileRoute('/')({ component: App })
+export const Route = createFileRoute('/')({
+  component: App,
+  errorComponent: () => <div>There was an error</div>,
+  notFoundComponent: () => <div>Page Not Found</div>,
+})
 
 // function App() {
 //   const features = [
