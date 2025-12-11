@@ -26,6 +26,7 @@ const config = defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
+    setupFiles: './src/test/setUpTests.ts', //IMPORTANTE
     coverage: {
       provider: 'v8',
       reporter: ['text'],

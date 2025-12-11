@@ -38,11 +38,11 @@ describe('<LandingPage />', () => {
   it('renderiza todas las secciones correctamente', () => {
     render(<LandingPage />)
 
-    // expect(screen.getByTestId('initial-view')).toBeInTheDocument()
-    // expect(screen.getByTestId('products-view')).toBeInTheDocument()
-    // expect(screen.getByTestId('sustainability-view')).toBeInTheDocument()
-    // expect(screen.getByTestId('history-view')).toBeInTheDocument()
-    // expect(screen.getByTestId('future-view')).toBeInTheDocument()
-    // expect(screen.getByTestId('campaings-view')).toBeInTheDocument()
+    expect(screen.getByTestId('initial-view')).toBeInTheDocument()
+    expect(screen.getByTestId('products-view')).toBeInTheDocument()
+    expect(screen.getByTestId('sustainability-view')).toBeInTheDocument()
+    expect(screen.getByTestId('history-view')).toBeInTheDocument()
+    expect(screen.getByTestId('future-view')).toBeInTheDocument()
+    expect(screen.getByTestId('campaings-view')).toBeInTheDocument()
   })
 })
