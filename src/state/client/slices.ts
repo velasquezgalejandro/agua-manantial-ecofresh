@@ -1,4 +1,4 @@
-import type { StateCreator } from 'zustand';
+import type { StateCreator } from 'zustand'
 import type {
   TCustomActions,
   TFilterStore,
@@ -7,8 +7,8 @@ import type {
   TModelSlices,
   TSharedActions,
   TSliceState,
-} from '~client/clientTypes.ts';
-import { initialState, filterInitialState } from '~client/initialState.ts';
+} from '~client/clientTypes.ts'
+import { initialState, filterInitialState } from '~client/initialState.ts'
 
 /**
  * Factory para crear un slice base
@@ -39,7 +39,7 @@ export const createGenericSlice =
       setSelectedId: (selectedId: Exclude<TSliceState['selectedId'], null>) =>
         set(
           (state) => {
-            state[sliceName].selectedId = selectedId;
+            state[sliceName].selectedId = selectedId
           },
           undefined,
           { type: `${sliceName}/setSelectedId`, payload: selectedId },
@@ -47,7 +47,7 @@ export const createGenericSlice =
       setSelectedIds: (selectedIds: TSliceState['selectedIds']) =>
         set(
           (state) => {
-            state[sliceName].selectedIds = selectedIds;
+            state[sliceName].selectedIds = selectedIds
           },
           undefined,
           { type: `${sliceName}/setSelectedIds`, payload: selectedIds },
@@ -55,7 +55,7 @@ export const createGenericSlice =
       setSearch: (search: Exclude<TSliceState['search'], null>) =>
         set(
           (state) => {
-            state[sliceName].search = search;
+            state[sliceName].search = search
           },
           undefined,
           { type: `${sliceName}/setSearch`, payload: search },
@@ -63,7 +63,7 @@ export const createGenericSlice =
       setFilter: (filter: TSliceState['filter']) =>
         set(
           (state) => {
-            state[sliceName].filter = filter;
+            state[sliceName].filter = filter
           },
           undefined,
           { type: `${sliceName}/setFilter`, payload: filter },
@@ -71,7 +71,7 @@ export const createGenericSlice =
       setMeta: (meta: TSliceState['meta']) =>
         set(
           (state) => {
-            state[sliceName].meta = meta;
+            state[sliceName].meta = meta
           },
           undefined,
           { type: `${sliceName}/setMeta`, payload: meta },
@@ -79,7 +79,7 @@ export const createGenericSlice =
       resetSelectedId: () =>
         set(
           (state) => {
-            state[sliceName].selectedId = initialState.selectedId;
+            state[sliceName].selectedId = initialState.selectedId
           },
           undefined,
           { type: `${sliceName}/resetSelectedId` },
@@ -87,7 +87,7 @@ export const createGenericSlice =
       resetSelectedIds: () =>
         set(
           (state) => {
-            state[sliceName].selectedIds = initialState.selectedIds;
+            state[sliceName].selectedIds = initialState.selectedIds
           },
           undefined,
           { type: `${sliceName}/resetSelectedIds` },
@@ -95,7 +95,7 @@ export const createGenericSlice =
       resetSearch: () =>
         set(
           (state) => {
-            state[sliceName].search = initialState.search;
+            state[sliceName].search = initialState.search
           },
           undefined,
           { type: `${sliceName}/resetSearch` },
@@ -103,7 +103,7 @@ export const createGenericSlice =
       resetFilter: () =>
         set(
           (state) => {
-            state[sliceName].filter = initialState.filter;
+            state[sliceName].filter = initialState.filter
           },
           undefined,
           { type: `${sliceName}/resetFilter` },
@@ -111,7 +111,7 @@ export const createGenericSlice =
       resetMeta: () =>
         set(
           (state) => {
-            state[sliceName].meta = initialState.meta;
+            state[sliceName].meta = initialState.meta
           },
           undefined,
           { type: `${sliceName}/resetMeta` },
@@ -119,22 +119,22 @@ export const createGenericSlice =
       resetModel: () =>
         set(
           (state) => {
-            Object.assign(state[sliceName], initialState);
+            Object.assign(state[sliceName], initialState)
           },
           undefined,
           { type: `${sliceName}/resetModel` },
         ),
-    };
+    }
 
-    const customActionsObj = customActions ? customActions(set) : {};
+    const customActionsObj = customActions ? customActions(set) : {}
 
     return {
       [sliceName]: {
         ...baseSlice,
         ...customActionsObj,
       },
-    } as Pick<TFinalStoreStructure, K>;
-  };
+    } as Pick<TFinalStoreStructure, K>
+  }
 
 /* ------------------------------------------------------ */
 /*                         Slices                         */
@@ -153,22 +153,22 @@ export const sharedSlice: StateCreator<
     resetAllModels: () => {
       set(store.getInitialState(), undefined, {
         type: 'shared/resetAllModels',
-      });
+      })
     },
     resetMunicipioAndRegionSearch: () => {
       set(
         (state) => {
-          state.estaciones.search = null;
-          state.estaciones.selectedId = null;
-          state.regiones.search = null;
-          state.regiones.selectedId = null;
+          state.estaciones.search = null
+          state.estaciones.selectedId = null
+          state.regiones.search = null
+          state.regiones.selectedId = null
         },
         undefined,
         { type: 'shared/resetMunicipioAndRegionSearch' },
-      );
+      )
     },
   },
-});
+})
 
 export const filterSlice: StateCreator<
   TFilterStore,
@@ -184,18 +184,18 @@ export const filterSlice: StateCreator<
   setFilter: (key, value) => {
     set(
       (state) => {
-        Object.assign(state, { [key]: value });
+        Object.assign(state, { [key]: value })
       },
       undefined,
       { type: `filter/${key}`, payload: value },
-    );
+    )
   },
-});
+})
 
 /**
  * Almacena acciones genéricas y específicas de modelos
  */
-export const regionesSlice = createGenericSlice('regiones');
+export const regionesSlice = createGenericSlice('regiones')
 export const estacionesSlice = createGenericSlice('estaciones', (set) => ({
   setSearchAndSelectedId: (
     // selectedId: Exclude<TSliceState['selectedId'], null>, //TODO:
@@ -203,10 +203,10 @@ export const estacionesSlice = createGenericSlice('estaciones', (set) => ({
   ) =>
     set(
       (state) => {
-        state.estaciones.selectedId = selectedId;
-        state.estaciones.search = 'CODIGO_1';
+        state.estaciones.selectedId = selectedId
+        state.estaciones.search = selectedId
       },
       undefined,
       { type: 'estaciones/setSearchAndSelectedId', payload: selectedId },
     ),
-}));
+}))
