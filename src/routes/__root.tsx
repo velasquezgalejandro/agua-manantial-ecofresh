@@ -8,8 +8,6 @@ import { TanStackDevtools } from '@tanstack/react-devtools'
 import { ThemeProvider } from '~layout/ThemeProvider/themeProvider.tsx'
 import { NotFoundRoute } from '~views/NotFoundRoute'
 
-// import Header from '../components/Header'
-
 import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
 
 import appCss from '../styles.css?url'
