@@ -20,7 +20,7 @@ export const InitialView = ({ ref }) => {
       ref={ref}
       sx={{
         height: '80dvh',
-        backgroundImage: `url('templates/template_1920x1080.png')`,
+        backgroundImage: `url('templates/manantial.png')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
