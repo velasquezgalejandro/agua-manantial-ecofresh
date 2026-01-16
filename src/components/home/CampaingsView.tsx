@@ -15,33 +15,6 @@ import Chip from '@mui/material/Chip'
 import Paper from '@mui/material/Paper'
 import { useGetEventosData } from '~server/hooks/useGetEventos'
 
-const evento = [
-  {
-    id: 1,
-    name: 'Evento 1',
-    descripcion: 'Descripción del evento 1',
-    imagen: '',
-    activo: true,
-    categoria: 'Categoría A',
-  },
-  {
-    id: 2,
-    name: 'Evento 2',
-    descripcion: 'Descripción del evento 2',
-    imagen: '',
-    activo: true,
-    categoria: 'Categoría A',
-  },
-  {
-    id: 3,
-    name: 'Evento 3',
-    descripcion: 'Descripción del evento 3',
-    imagen: '',
-    activo: true,
-    categoria: 'Categoría A',
-  },
-]
-
 export const CampaingsView = ({ ref }) => {
   const { data: eventosData, isLoading, isError } = useGetEventosData()
 

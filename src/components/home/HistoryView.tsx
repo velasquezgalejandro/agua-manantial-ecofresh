@@ -8,6 +8,7 @@ import { GenericContainer } from '~utils/GenericContainer'
 import { AboutsUsOption } from '~home/AboutsUsOption.tsx'
 import { VisionOption } from '~home/VisionOption.tsx'
 import { WeHistoryOption } from '~home/WeHistoryOption'
+import { FindUsOption } from '~home/FindUsOption.tsx'
 import { motion } from 'framer-motion'
 
 export const HistoryView = ({ ref }) => {
@@ -56,6 +57,8 @@ export const HistoryView = ({ ref }) => {
         return <VisionOption />
       case 'option3':
         return <WeHistoryOption />
+      case 'option4':
+        return <FindUsOption />
       default:
         return <Box>Opción no válida</Box>
     }
@@ -123,6 +126,7 @@ export const HistoryView = ({ ref }) => {
               {renderToggleButton('option1', '¿Quienes somos?')}
               {renderToggleButton('option2', 'Misión y Visión')}
               {renderToggleButton('option3', 'Nuestra historia')}
+              {renderToggleButton('option4', 'Encuentranos')}
             </ToggleButtonGroup>
           </motion.div>
           {renderOption()}

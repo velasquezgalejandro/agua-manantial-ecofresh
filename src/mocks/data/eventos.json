@@ -20,7 +20,7 @@
     "name": "Dia del agua manantial fresh",
     "descripcion": "Evento educativo con siembra de arboles",
     "imagen": "https://example.com/img/zapatos-running.png",
-    "activo": false,
+    "activo": true,
     "categoria": "Celebracion"
   },
   {
