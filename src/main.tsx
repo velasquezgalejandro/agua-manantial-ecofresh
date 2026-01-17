@@ -11,13 +11,27 @@ import { queryClient } from '~routes/-router'
 import 'leaflet/dist/leaflet.css'
 // import './lib/leaflet'
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <ScrollProvider>
-      <QueryClientProvider client={queryClient}>
-        <App />
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
-    </ScrollProvider>
-  </React.StrictMode>,
-)
+async function enableMocking() {
+  if (!import.meta.env.DEV) {
+    return
+  }
+
+  const { worker } = await import('./mocks/browser')
+
+  await worker.start({
+    onUnhandledRequest: 'error',
+  })
+}
+
+enableMocking().then(() => {
+  ReactDOM.createRoot(document.getElementById('root')!).render(
+    <React.StrictMode>
+      <ScrollProvider>
+        <QueryClientProvider client={queryClient}>
+          <App />
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
+      </ScrollProvider>
+    </React.StrictMode>,
+  )
+})

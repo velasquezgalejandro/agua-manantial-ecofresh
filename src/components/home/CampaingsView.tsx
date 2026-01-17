@@ -26,7 +26,7 @@ export const CampaingsView = ({ ref }) => {
     return <div>Error loading eventos data</div>
   }
 
-  const data = Object.values(eventosData) || []
+  const data = Object?.values(eventosData) || []
 
   return (
     <GenericContainer
