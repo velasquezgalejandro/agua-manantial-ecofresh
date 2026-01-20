@@ -1,15 +1,8 @@
 import { GenericContainer } from '~utils/GenericContainer'
 import Stack from '@mui/material/Stack'
 import Grid from '@mui/material/Grid'
-import Typography from '@mui/material/Typography'
-import Accordion from '@mui/material/Accordion'
-import AccordionActions from '@mui/material/AccordionActions'
-import AccordionSummary from '@mui/material/AccordionSummary'
-import AccordionDetails from '@mui/material/AccordionDetails'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
-import AddIcon from '@mui/icons-material/Add'
+import Typography from '@mui/material/Typography'
 import Chip from '@mui/material/Chip'
 
 import Paper from '@mui/material/Paper'
@@ -67,8 +60,13 @@ export const CampaingsView = ({ ref }) => {
             }
             return (
               <Grid size={{ xs: 12, smh: 6, mdh: 4 }} key={id}>
-                <Paper sx={{ py: 3, px: 2, boxShadow: 2 }}>
-                  <Stack sx={{ rowGap: 2 }}>
+                <Paper sx={{ boxShadow: 2 }}>
+                  <Box
+                    component="img"
+                    src={imagen}
+                    sx={{ width: 1, height: 180, objectFit: 'cover' }}
+                  />
+                  <Stack sx={{ rowGap: 2, py: 3, px: 2 }}>
                     <Stack
                       direction="row"
                       justifyContent="space-between"

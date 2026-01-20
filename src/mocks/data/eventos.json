@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Bebe, Dona y Transforma",
     "descripcion": "Campaña: Bebe, Dona y Transforma",
-    "imagen": "https://example.com/img/camiseta-azul.png",
+    "imagen": "templates/template_1920x1080.png",
     "activo": true,
     "categoria": "Campaña"
   },
@@ -11,7 +11,7 @@
     "id": 2,
     "name": "Tus botellas construyen futuro",
     "descripcion": "Tus botellas construyen futuro",
-    "imagen": "https://example.com/img/pantalon-negro.png",
+    "imagen": "templates/template_1920x1080.png",
     "activo": true,
     "categoria": "Celebracion"
   },
@@ -19,7 +19,7 @@
     "id": 3,
     "name": "Dia del agua manantial fresh",
     "descripcion": "Evento educativo con siembra de arboles",
-    "imagen": "https://example.com/img/zapatos-running.png",
+    "imagen": "templates/template_1920x1080.png",
     "activo": true,
     "categoria": "Celebracion"
   },
@@ -27,7 +27,7 @@
     "id": 4,
     "name": "Toma agua fresh, siembra vida",
     "descripcion": "Toma agua fresh siembra vida.",
-    "imagen": "https://example.com/img/gorra-roja.png",
+    "imagen": "templates/template_1920x1080.png",
     "activo": true,
     "categoria": "Campaña"
   }
