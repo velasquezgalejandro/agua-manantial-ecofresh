@@ -1,29 +1,38 @@
-import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
+import Stack from '@mui/material/Stack'
 import { Map } from '~utils/Map'
 
 export const FindUsOption = () => {
   return (
     <Grid container spacing={2} sx={{ height: 1, pt: 4 }}>
       <Grid size={6}>
-        <Box sx={{ p: 4 }}>
-          <Typography variant="h5" gutterBottom>
-            Encuéntranos
-          </Typography>
-          <Typography variant="body1" gutterBottom>
-            Puedes encontrarnos en las siguientes ubicaciones:
-          </Typography>
-          <ul>
-            <li>Oficina Central: Calle Falsa 123, Ciudad, País</li>
-            <li>Tienda Principal: Avenida Siempre Viva 456, Ciudad, País</li>
-            <li>Distribuidores Autorizados en todo el país</li>
-          </ul>
-          <Typography variant="body1" gutterBottom>
-            También puedes contactarnos a través de nuestro sitio web o redes
-            sociales para más información.
-          </Typography>
-        </Box>
+        <Stack
+          sx={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            p: 3,
+            rowGap: 3,
+            bgcolor: 'common.white',
+            height: 1,
+          }}
+        >
+          <Stack sx={{ rowGap: 1 }}>
+            <Typography variant="h4" fontWeight="bold">
+              Encuéntranos
+            </Typography>
+
+            <Typography variant="subtitle1" sx={{ px: 2 }}>
+              Puedes encontrarnos en las siguientes ubicaciones:
+            </Typography>
+            <ul>
+              <li>Oficina Central: Calle Falsa 123, Ciudad, País</li>
+              <li>Tienda Principal: Avenida Siempre Viva 456, Ciudad, País</li>
+              <li>Tienda Principal: Avenida Siempre Viva 456, Ciudad, País</li>
+              <li>Tienda Principal: Avenida Siempre Viva 456, Ciudad, País</li>
+            </ul>
+          </Stack>
+        </Stack>
       </Grid>
       <Grid size={6}>
         <Map />

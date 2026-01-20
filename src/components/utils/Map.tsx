@@ -1,13 +1,17 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker } from 'react-leaflet'
 import type { LatLngExpression } from 'leaflet'
 
-const center: LatLngExpression = [4.711, -74.072]
+const center: LatLngExpression = [3.4433, -76.5272]
+const jamundi: LatLngExpression = [3.2613, -76.5423]
+const cali: LatLngExpression = [3.4433, -76.5272]
+const yumbo: LatLngExpression = [3.5826, -76.4925]
+const palmira: LatLngExpression = [3.5345, -76.2986]
 
 export const Map = () => {
   return (
     <MapContainer
       center={center}
-      zoom={13}
+      zoom={10}
       style={{ height: '400px', width: '100%' }}
     >
       <TileLayer
@@ -15,11 +19,10 @@ export const Map = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      <Marker position={center}>
-        <Popup>
-          Hola 👋 <br /> Este es un marcador en Bogotá
-        </Popup>
-      </Marker>
+      <Marker position={jamundi} />
+      <Marker position={cali} />
+      <Marker position={yumbo} />
+      <Marker position={palmira} />
     </MapContainer>
   )
 }

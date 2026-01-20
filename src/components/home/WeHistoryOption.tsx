@@ -96,8 +96,6 @@ export const WeHistoryOption = () => {
   const renderDetailsCard = () => {
     const eventSelected = data.find((e) => e.id === selectedStep)
 
-    console.log({ eventSelected })
-
     return (
       <Paper
         elevation={4}
@@ -135,14 +133,25 @@ export const WeHistoryOption = () => {
 
             <Stack
               sx={{
-                flexDirection: { xs: 'column', md: 'row' }, // responsivo
+                flexDirection: 'column',
                 gap: 2,
                 height: 1,
+                alignItems: 'center',
               }}
             >
+              <Box
+                component="img"
+                src={eventSelected.imagen}
+                sx={{
+                  width: { xs: '100%' },
+                  height: { xs: 180, md: 260 },
+                  borderRadius: 3,
+                  objectFit: 'cover',
+                  boxShadow: 3,
+                }}
+              />
               <Typography
                 sx={{
-                  width: '55%',
                   fontSize: '1rem',
                   lineHeight: 1.5,
                   textAlign: 'justify',
@@ -151,18 +160,6 @@ export const WeHistoryOption = () => {
               >
                 {eventSelected.description}
               </Typography>
-
-              <Box
-                component="img"
-                src={eventSelected.imagen}
-                sx={{
-                  width: { xs: '100%', md: '45%' },
-                  height: { xs: 180, md: 260 },
-                  borderRadius: 3,
-                  objectFit: 'cover',
-                  boxShadow: 3,
-                }}
-              />
             </Stack>
           </Stack>
         )}
@@ -181,7 +178,7 @@ export const WeHistoryOption = () => {
   return (
     <Grid container spacing={2} sx={{ height: 1, pt: 4 }}>
       <Grid
-        size={6}
+        size={{ xs: 12, lg: 6 }}
         sx={{
           boxShadow: 4,
           height: 1,
@@ -197,7 +194,7 @@ export const WeHistoryOption = () => {
         {renderTimeLine()}
       </Grid>
 
-      <Grid size={6}>{renderDetailsCard()}</Grid>
+      <Grid size={{ xs: 12, lg: 6 }}>{renderDetailsCard()}</Grid>
     </Grid>
   )
 }
