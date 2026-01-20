@@ -12,6 +12,7 @@ export const ScrollProvider = ({ children }) => {
     history: useRef<HTMLDivElement>(null),
     future: useRef<HTMLDivElement>(null),
     campaing: useRef<HTMLDivElement>(null),
+    footer: useRef<HTMLDivElement>(null),
   }
 
   const scrollTo = (section: keyof typeof sections) => {

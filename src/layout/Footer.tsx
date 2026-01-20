@@ -13,8 +13,11 @@ import useMediaQuery from '@mui/material/useMediaQuery'
 import { useTheme } from '@mui/material/styles'
 import { motion } from 'framer-motion'
 import { useScroll } from '~context/ScrollContext'
+import List from '@mui/material/List'
+import ListItemButton from '@mui/material/ListItemButton'
+import ListItemText from '@mui/material/ListItemText'
 
-export const Footer = () => {
+export const Footer = ({ ref }) => {
   const theme = useTheme()
   const isBiggerThanMd = useMediaQuery(theme.breakpoints.down('smh'))
   const { scrollTo } = useScroll()
@@ -26,14 +29,30 @@ export const Footer = () => {
     </Stack>
   )
 
-  const renderSections = (section: string, label: string) => (
-    <Typography
-      variant="body2"
-      onClick={() => scrollTo(section)}
-      style={{ cursor: 'pointer' }}
-    >
-      {label}
-    </Typography>
+  const renderSections = (sections: { id: string; label: string }[]) => (
+    <List dense sx={{ p: 0 }}>
+      {sections.map(({ id, label }) => (
+        <ListItemButton
+          key={id}
+          onClick={() => scrollTo(id)}
+          sx={{
+            borderRadius: 1,
+            px: 1,
+            '&:hover': {
+              backgroundColor: 'primary.800',
+            },
+          }}
+        >
+          <ListItemText
+            primary={label}
+            primaryTypographyProps={{
+              variant: 'body2',
+              color: 'primary.50',
+            }}
+          />
+        </ListItemButton>
+      ))}
+    </List>
   )
 
   const MotionIconButton = motion(IconButton)
@@ -59,6 +78,7 @@ export const Footer = () => {
   return (
     <>
       <Box
+        ref={ref}
         component="div"
         sx={{
           position: 'relative',
@@ -115,10 +135,12 @@ export const Footer = () => {
           <Stack spacing={1} alignItems="center">
             <Typography variant="h6">Exploranos</Typography>
             <Stack alignItems="flex-start">
-              {renderSections('home', 'Inicio')}
-              {renderSections('product', 'Nuestros productos')}
-              {renderSections('sustainability', 'Sobre nosotros')}
-              {renderSections('future', 'Compromiso con el futuro')}
+              {renderSections([
+                { id: 'home', label: 'Inicio' },
+                { id: 'product', label: 'Nuestros productos' },
+                { id: 'sustainability', label: 'Sobre nosotros' },
+                { id: 'future', label: 'Compromiso con el futuro' },
+              ])}
             </Stack>
           </Stack>
           <Stack
@@ -139,6 +161,7 @@ export const Footer = () => {
             {renderIconMedia(FacebookIcon, 'https://www.facebook.com')}
             {renderIconMedia(InstagramIcon, 'https://www.instagram.com')}
             {renderIconMedia(WhatsAppIcon, 'https://www.whatsapp.com')}
+            {renderIconMedia(LocalPhoneIcon, 'tel:+1(555)123-4567')}
           </Stack>
         </Stack>
         <Typography variant="body2">

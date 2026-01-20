@@ -110,6 +110,7 @@ export const InitialView = ({ ref }) => {
                   label={'Conocenos'}
                   buttonAnimationColor={theme.palette.primary[900]}
                   sx={{ bgcolor: theme.palette.primary[600], width: 200 }}
+                  action={() => scrollTo('footer')}
                 />
               </Stack>
             </Stack>

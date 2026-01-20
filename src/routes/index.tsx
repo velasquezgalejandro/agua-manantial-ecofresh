@@ -1,12 +1,14 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { LandingPage } from '@/views/LandingPages.tsx'
 import { Footer } from '~layout/Footer.tsx'
+import { useScroll } from '~context/ScrollContext.tsx'
 
 export const App = () => {
+  const { sections } = useScroll()
   return (
     <>
       <LandingPage />
-      <Footer />
+      <Footer ref={sections.footer} />
     </>
   )
 }
