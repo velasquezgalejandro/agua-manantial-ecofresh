@@ -8,6 +8,11 @@ import Chip from '@mui/material/Chip'
 import Paper from '@mui/material/Paper'
 import { useGetEventosData } from '~server/hooks/useGetEventos'
 
+const colorCategory = {
+  Campaña: '#5c6bc0',
+  Celebracion: '#e03c45',
+}
+
 export const CampaingsView = ({ ref }) => {
   const { data: eventosData, isLoading, isError } = useGetEventosData()
 
@@ -78,7 +83,7 @@ export const CampaingsView = ({ ref }) => {
                       <Chip
                         label={categoria}
                         sx={{
-                          bgcolor: '#5c6bc0',
+                          bgcolor: colorCategory[categoria],
                           color: 'white',
                           fontWeight: 600,
                         }}

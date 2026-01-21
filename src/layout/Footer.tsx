@@ -165,7 +165,7 @@ export const Footer = ({ ref }) => {
           </Stack>
         </Stack>
         <Typography variant="body2">
-          © 2025 Todos los derechos reservados.
+          © 2026 Todos los derechos reservados.
         </Typography>
       </Stack>
     </>

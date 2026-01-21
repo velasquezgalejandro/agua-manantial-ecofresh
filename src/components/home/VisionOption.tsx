@@ -188,7 +188,7 @@ export const VisionOption = () => {
           alignItems: 'center',
           textAlign: 'center',
           gap: 1.5,
-          height: 400,
+          height: 420,
         }}
       >
         <Grid container sx={{ width: 1, height: 1, position: 'relative' }}>

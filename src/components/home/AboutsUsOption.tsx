@@ -2,11 +2,7 @@ import Stack from '@mui/material/Stack'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
-import ListItemIcon from '@mui/material/ListItemIcon'
 import SvgIcon from '@mui/material/SvgIcon'
-import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded'
 import Paper from '@mui/material/Paper'
 import { motion } from 'framer-motion'
 import { Heart } from 'lucide-react'
@@ -131,10 +127,11 @@ export const AboutsUsOption = () => {
             >
               <Box
                 component="img"
-                src="templates/template_1920x1080.png"
+                src="logos/ecofresh.png"
                 sx={{
                   width: 1,
                   height: 'auto',
+                  maxHeight: 420,
                   borderRadius: 3,
                   boxShadow: 3,
                   objectFit: 'cover',

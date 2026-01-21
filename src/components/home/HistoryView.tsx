@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import type { FC } from 'react'
 import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
@@ -10,8 +10,13 @@ import { VisionOption } from '~home/VisionOption.tsx'
 import { WeHistoryOption } from '~home/WeHistoryOption'
 import { FindUsOption } from '~home/FindUsOption.tsx'
 import { motion } from 'framer-motion'
+import useMediaQuery from '@mui/material/useMediaQuery'
+import IconButton from '@mui/material/IconButton'
+import { ArrowRight } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 
 export const HistoryView = ({ ref }) => {
+  const isBiggerThanSm = useMediaQuery((theme) => theme.breakpoints.up('sm'))
   const theme = useTheme()
   const [alignment, setAlignment] = useState('option1')
 
@@ -27,9 +32,12 @@ export const HistoryView = ({ ref }) => {
   ) => {
     return (
       <ToggleButton
+        size={isBiggerThanSm ? 'medium' : 'small'}
         value={value}
         sx={{
-          minWidth: 140,
+          fontSize: { xs: '0.75rem', sm: '0.875rem' },
+          px: { xs: 1.5, sm: 2 },
+          minWidth: { xs: 110, sm: 140 },
           color: 'common.white',
           bgcolor: 'primary.900',
           ':hover': {
@@ -117,10 +125,19 @@ export const HistoryView = ({ ref }) => {
               onChange={handleChange}
               aria-label="Opciones"
               sx={{
-                position: 'absolute',
-                top: 16,
-                right: '50%',
-                transform: 'translate(50%, 0%)',
+                position: isBiggerThanSm ? 'absolute' : 'relative',
+                top: isBiggerThanSm ? 16 : 'auto',
+                right: isBiggerThanSm ? '50%' : 'auto',
+                transform: isBiggerThanSm ? 'translate(50%, 0%)' : 'none',
+                display: 'flex',
+                flexDirection: 'row',
+                overflowX: isBiggerThanSm ? 'visible' : 'auto',
+                whiteSpace: 'nowrap',
+                width: isBiggerThanSm ? 'auto' : '100%',
+                justifyContent: isBiggerThanSm ? 'center' : 'flex-start',
+                '&::-webkit-scrollbar': {
+                  display: 'none',
+                },
               }}
             >
               {renderToggleButton('option1', '¿Quienes somos?')}
