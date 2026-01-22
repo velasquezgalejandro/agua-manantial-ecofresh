@@ -13,13 +13,11 @@ import 'leaflet/dist/leaflet.css'
 // import './lib/leaflet'
 
 async function enableMocking() {
-  if (import.meta.env.DEV) {
-    const { worker } = await import('./mocks/browser')
+  const { worker } = await import('./mocks/browser')
 
-    await worker.start({
-      onUnhandledRequest: 'error',
-    })
-  }
+  await worker.start({
+    onUnhandledRequest: 'error',
+  })
 }
 
 enableMocking().then(() => {
