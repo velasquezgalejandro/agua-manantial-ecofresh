@@ -5,6 +5,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { ScrollProvider } from '~context/ScrollContext'
 
 import App from './App'
+import './styles/fonts.css'
 // import { queryClient } from './lib/queryClient'
 import { queryClient } from '~routes/-router'
 

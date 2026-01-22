@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'inter';
+  src: url('./fonts/inter-light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('./fonts/Roboto-Light.ttf') format('truetype');
+}
