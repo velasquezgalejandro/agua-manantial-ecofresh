@@ -10,6 +10,7 @@ import { Lightbulb } from 'lucide-react'
 import { Leaf } from 'lucide-react'
 import { Eye } from 'lucide-react'
 import { Handshake } from 'lucide-react'
+import { base } from '~constants/constantsBase'
 
 const values = [
   { label: 'Bienestar', icon: Heart, color: '#ff0000' },
@@ -127,7 +128,7 @@ export const AboutsUsOption = () => {
             >
               <Box
                 component="img"
-                src="logos/ecofresh.png"
+                src={`${base}logos/ecofresh.png`}
                 sx={{
                   width: 1,
                   height: 'auto',

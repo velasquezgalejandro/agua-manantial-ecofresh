@@ -9,6 +9,7 @@ import AccordionDetails from '@mui/material/AccordionDetails'
 import { ChevronDown } from 'lucide-react'
 import { useTheme } from '@mui/material/styles'
 import { motion } from 'framer-motion'
+import { base } from '~constants/constantsBase'
 
 type TProduct = {
   id: number
@@ -66,7 +67,7 @@ export const LeftImageProduct: FC<TProduct> = (
           >
             <Box
               component="img"
-              src={imagen}
+              src={`${base}${imagen}`}
               sx={{
                 width: 1,
                 height: 'auto',

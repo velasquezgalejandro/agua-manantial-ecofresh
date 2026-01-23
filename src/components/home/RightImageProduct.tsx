@@ -9,6 +9,7 @@ import AccordionDetails from '@mui/material/AccordionDetails'
 import { ChevronDown } from 'lucide-react'
 import { useTheme } from '@mui/material/styles'
 import { motion } from 'framer-motion'
+import { base } from '~constants/constantsBase'
 
 type TProduct = {
   id: number
@@ -203,7 +204,7 @@ export const RightImageProduct: FC<TProduct> = (
               width: 1,
               height: 'auto',
             }}
-            src={imagen}
+            src={`${base}${imagen}`}
           />
         </motion.div>
       </Grid>

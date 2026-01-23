@@ -12,6 +12,7 @@ import Grid from '@mui/material/Grid'
 import Button from '@mui/material/Button'
 import Paper from '@mui/material/Paper'
 import { useGetTimelineData } from '~server/hooks/useGetTimeline'
+import { base } from '~constants/constantsBase'
 
 export const WeHistoryOption = () => {
   const { data: timelineData, isError, isLoading } = useGetTimelineData()
@@ -141,7 +142,7 @@ export const WeHistoryOption = () => {
             >
               <Box
                 component="img"
-                src={eventSelected.imagen}
+                src={`${base}${eventSelected.imagen}`}
                 sx={{
                   width: { xs: '100%' },
                   height: { xs: 180, md: 260 },

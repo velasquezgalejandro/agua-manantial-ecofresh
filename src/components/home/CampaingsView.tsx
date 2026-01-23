@@ -7,6 +7,7 @@ import Chip from '@mui/material/Chip'
 
 import Paper from '@mui/material/Paper'
 import { useGetEventosData } from '~server/hooks/useGetEventos'
+import { base } from '~constants/constantsBase'
 
 const colorCategory = {
   Campaña: '#5c6bc0',
@@ -68,7 +69,7 @@ export const CampaingsView = ({ ref }) => {
                 <Paper sx={{ boxShadow: 2 }}>
                   <Box
                     component="img"
-                    src={imagen}
+                    src={`${base}${imagen}`}
                     sx={{ width: 1, height: 180, objectFit: 'cover' }}
                   />
                   <Stack sx={{ rowGap: 2, py: 3, px: 2 }}>

@@ -3,16 +3,14 @@ import Stack from '@mui/material/Stack'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import CrisisAlertIcon from '@mui/icons-material/CrisisAlert'
-import VisibilityIcon from '@mui/icons-material/Visibility'
 import Paper from '@mui/material/Paper'
 import Grid from '@mui/material/Grid'
 import Button from '@mui/material/Button'
 import { motion } from 'framer-motion'
-import type { OverridableComponent } from '@mui/material/OverridableComponent'
-import type { SvgIconTypeMap } from '@mui/material/SvgIcon'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import useMediaQuery from '@mui/material/useMediaQuery'
+import { base } from '~constants/constantsBase'
 
 export const VisionOption = () => {
   const isBiggerThanLg = useMediaQuery((theme) => theme.breakpoints.up('lg'))
@@ -53,7 +51,7 @@ export const VisionOption = () => {
       >
         <Box
           component={'img'}
-          src="/templates/template_1920x1080_2.jpg" // ← Cambia esto por tu imagen real
+          src={`${base}templates/template_1920x1080_2.jpg`}
           alt="Vision"
           sx={{
             width: 1,
