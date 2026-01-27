@@ -7,6 +7,7 @@ import { useTheme } from '@mui/material/styles'
 import { motion } from 'framer-motion'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { useScroll } from '~context/ScrollContext'
+import { base } from '~constants/constantsBase'
 
 export const InitialView = ({ ref }) => {
   const { scrollTo } = useScroll()
@@ -19,7 +20,7 @@ export const InitialView = ({ ref }) => {
       ref={ref}
       sx={{
         height: '80dvh',
-        backgroundImage: `url('templates/manantial.png')`,
+        backgroundImage: `url('${base}templates/manantial.png')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
