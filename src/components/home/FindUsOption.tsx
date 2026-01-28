@@ -6,7 +6,7 @@ import { Map } from '~utils/Map'
 export const FindUsOption = () => {
   return (
     <Grid container spacing={2} sx={{ height: 1, pt: 4 }}>
-      <Grid size={6}>
+      <Grid size={{ xs: 12, lg: 6 }}>
         <Stack
           sx={{
             justifyContent: 'center',
@@ -34,7 +34,7 @@ export const FindUsOption = () => {
           </Stack>
         </Stack>
       </Grid>
-      <Grid size={6}>
+      <Grid size={{ xs: 12, lg: 6 }}>
         <Map />
       </Grid>
     </Grid>
