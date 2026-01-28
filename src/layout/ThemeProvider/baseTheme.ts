@@ -268,8 +268,8 @@ export const baseTheme = createTheme(
         w05: darken(white, 0.05),
       },
       background: {
-        paper: '#f9fbfcff',
-        default: '#ffffff',
+        paper: '#fafcfc',
+        default: '#f9fafb',
         layout: '#e6f6eb',
       },
     },

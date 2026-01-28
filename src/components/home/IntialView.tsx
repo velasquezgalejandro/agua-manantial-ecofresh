@@ -71,7 +71,7 @@ export const InitialView = ({ ref }) => {
             }}
           >
             <Stack sx={{ width: 1 }}>
-              <Typography variant="h2" fontWeight="bold" gutterBottom>
+              <Typography variant="h1" fontWeight="bold" gutterBottom>
                 Ecofresh
               </Typography>
               <Typography variant="h6" sx={{ mb: { xs: 2, smh: 3 } }}>
@@ -80,7 +80,7 @@ export const InitialView = ({ ref }) => {
                   component="span"
                   sx={{
                     backgroundImage: (theme) =>
-                      `linear-gradient(90deg, ${theme.palette.secondary.light}, ${theme.palette.secondary.dark}  )`,
+                      `linear-gradient(90deg, ${theme.palette.primary.dark}, ${theme.palette.primary.main}  )`,
                     backgroundClip: 'text',
                     WebkitBackgroundClip: 'text',
                     color: 'transparent',
@@ -117,6 +117,6 @@ export const InitialView = ({ ref }) => {
           </Box>
         </motion.div>
       </GenericContainer>
-    </Box>
+    </Box >
   )
 }

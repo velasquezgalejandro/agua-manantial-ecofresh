@@ -17,11 +17,11 @@ type TProduct = {
   description: string
   imagen: string
   presentations: Record<string, string>[]
+  isBiggerThanXl: boolean
 }
 
 export const LeftImageProduct: FC<TProduct> = (
-  { id, name, description, imagen, presentations },
-  isBiggerThanXl,
+  { id, name, description, imagen, presentations, isBiggerThanXl },
 ) => {
   const theme = useTheme()
 
@@ -104,20 +104,23 @@ export const LeftImageProduct: FC<TProduct> = (
                   px: 2,
                 }}
               >
-                <Typography variant="h5" sx={{ color: 'text.primary' }}>
+                <Typography variant="h3" sx={{ color: 'text.primary' }}>
                   {name}
                 </Typography>
                 <Typography
                   variant="subtitle1"
-                  sx={{ color: 'text.secondary' }}
+                  sx={{ color: 'text.secondary', px: 3 }}
                 >
                   {description}
                 </Typography>
               </Stack>
-              <Stack sx={{ width: 1 }}>
+              <Stack sx={{ width: 1, rowGap: 1 }}>
+                <Typography align='center' variant='body1' sx={{ fontWeight: 'bold' }}>
+                  Nuestras presentaciones
+                </Typography>
                 <Grid
                   container
-                  spacing={{ xs: 0, xl: 2 }}
+                  spacing={{ xs: 0, xl: 0 }}
                   sx={{
                     width: 1,
                     justifyContent: 'center',
@@ -140,71 +143,44 @@ export const LeftImageProduct: FC<TProduct> = (
                             }}
                           >
                             {isBiggerThanXl ? (
-                              <motion.div
-                                initial={{
-                                  opacity: 0,
+                              <Box
+                                sx={{
+                                  width: '100%',
+                                  boxShadow: 2,
                                   background: `linear-gradient(135deg, #fff 0%,  ${theme.palette.primary.main}22 50%, #fff 100%)`,
+                                  minHeight: 175,
+                                  py: 1,
+                                  px: 2
                                 }}
-                                animate={{ opacity: 1 }}
-                                whileHover={{
-                                  scale: 1.01,
-                                  background: `linear-gradient(135deg, ${theme.palette.primary.main}22 0%, #fff 50%, ${theme.palette.primary.main}22 100%)`,
-                                }}
-                                transition={{
-                                  duration: 0.5,
-                                  ease: 'easeOut',
-                                }}
-                                style={{ width: '100%' }}
                               >
-                                <Stack
-                                  sx={{
-                                    boxShadow: 2,
-                                    ':hover': {
-                                      cursor: 'pointer',
-                                    },
-                                  }}
-                                >
-                                  <Stack
-                                    sx={{
-                                      p: 1,
-                                      rowGap: 2,
-                                      width: 180,
-                                      height: 150,
-                                      alignItems: 'center',
-                                      justifyContent: 'center',
-                                    }}
+                                <Stack sx={{ gap: 1 }}>
+                                  <Typography
+                                    variant='h6'
+                                    sx={{ fontSize: '1rem', fontWeight: 'bold', textTransform: 'uppercase' }}
                                   >
-                                    <Stack sx={{ rowGap: 1 }}>
+                                    {tipo}</Typography>
+                                  <Stack sx={{ rowGap: 0.5 }}>
+                                    {itemsByType.map(({ tamaño, price }, i) => (
                                       <Typography
-                                        variant="h5"
-                                        sx={{ fontSize: '1rem !important' }}
+                                        key={i}
+                                        sx={{
+                                          fontWeight: 'bold',
+                                          fontSize: '0.85rem',
+                                        }}
                                       >
-                                        {tipo}
+                                        {tamaño} ml — {price.toLocaleString()} COP
                                       </Typography>
-                                      {itemsByType.map(
-                                        ({ tamaño, price }, i) => (
-                                          <Typography
-                                            key={i}
-                                            sx={{
-                                              fontWeight: 'bold',
-                                              fontSize: '0.75rem',
-                                            }}
-                                          >
-                                            {tamaño} ml —{' '}
-                                            {price.toLocaleString()} COP
-                                          </Typography>
-                                        ),
-                                      )}
-                                    </Stack>
+                                    ))}
                                   </Stack>
                                 </Stack>
-                              </motion.div>
+                              </Box>
                             ) : (
                               <Accordion
                                 sx={{
                                   width: '100%',
                                   boxShadow: 2,
                                   background: `linear-gradient(135deg, #fff 0%,  ${theme.palette.primary.main}22 50%, #fff 100%)`,
+                                  minHeight: "auto",
                                 }}
                               >
                                 <AccordionSummary expandIcon={<ChevronDown />}>
@@ -220,7 +196,7 @@ export const LeftImageProduct: FC<TProduct> = (
                                 </AccordionSummary>
 
                                 <AccordionDetails>
-                                  <Stack sx={{ rowGap: 1 }}>
+                                  <Stack sx={{ rowGap: 0.5 }}>
                                     {itemsByType.map(({ tamaño, price }, i) => (
                                       <Typography
                                         key={i}

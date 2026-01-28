@@ -15,10 +15,11 @@ export const ProductsView = ({ ref }) => {
 
   const data = Object.values(dataProducts)
 
+
   return (
     <GenericContainer sx={{ pb: 0, px: 0 }} ref={ref}>
       <Stack sx={{ rowGap: 6, width: 1 }}>
-        <Typography variant="h3" align="center">
+        <Typography variant="h2" align="center">
           Nuestros Productos
         </Typography>
         <Stack sx={{ width: 1, rowGap: 4 }}>

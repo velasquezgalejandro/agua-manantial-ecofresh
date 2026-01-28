@@ -8,7 +8,7 @@ export const customTheme = createTheme(baseTheme, {
     MuiCssBaseline: {
       styleOverrides: {
         html: {
-          backgroundColor: '#ffffff',
+          backgroundColor: '#f2f5f6',
           'path:focus': { outline: 'none' },
           '*::-webkit-scrollbar': {
             width: '8px',
