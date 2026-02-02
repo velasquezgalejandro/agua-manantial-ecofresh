@@ -23,7 +23,7 @@ const values = [
 export const AboutsUsOption = () => {
   return (
     <Stack sx={{ pt: 4 }}>
-      <Grid container spacing={4}>
+      <Grid container spacing={2}>
         <Grid item size={{ xs: 12, lg: 6 }}>
           <motion.div
             initial={{ opacity: 0, x: -50 }} // Estado inicial
@@ -57,21 +57,6 @@ export const AboutsUsOption = () => {
                   Somos una empresa comprometida con el bienestar integral, el
                   cuidado ambiental y la sostenibilidad social.
                 </Typography>
-              </Paper>
-              <Paper
-                elevation={3}
-                sx={{
-                  width: 1,
-                  borderRadius: 3,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  textAlign: 'center',
-                  gap: 1.5,
-                  px: 2,
-                  py: 1,
-                }}
-              >
                 <Typography variant="h4" fontWeight="bold" align="center">
                   Nuestros Valores
                 </Typography>
@@ -96,14 +81,6 @@ export const AboutsUsOption = () => {
                       </Typography>
                     )
                   })}
-                  {/* {values.map((text) => (
-                    <ListItem key={text} disablePadding sx={{ py: 0.3 }}>
-                      <ListItemIcon sx={{ minWidth: 32 }}>
-                        <CheckCircleRoundedIcon sx={{ fontSize: 22 }} />
-                      </ListItemIcon>
-                      <Typography variant="subtitle1">{text}</Typography>
-                    </ListItem>
-                  ))} */}
                 </Stack>
               </Paper>
             </Stack>
@@ -128,13 +105,13 @@ export const AboutsUsOption = () => {
             >
               <Box
                 component="img"
-                src={`${base}logos/ecofresh.png`}
+                src={`${base}logos/ecofresh-2.png`}
                 sx={{
                   width: 1,
                   height: 'auto',
                   maxHeight: 420,
                   borderRadius: 3,
-                  boxShadow: 3,
+                  boxShadow: 0,
                   objectFit: 'cover',
                   maxWidth: 600,
                 }}

@@ -106,8 +106,8 @@ export const SustainabilityView = ({ ref }) => {
   }
 
   return (
-    <GenericContainer sx={{ pb: 0, px: 0 }} ref={ref}>
-      <Stack sx={{ rowGap: 6, width: 1 }}>
+    <GenericContainer maxWidth={'lg'} sx={{ pb: 0, px: 0 }} ref={ref}>
+      <Stack sx={{ rowGap: 4, width: 1 }}>
         <Typography variant="h4" align="center">
           Nuestro compromiso con la sostenibilidad
         </Typography>
