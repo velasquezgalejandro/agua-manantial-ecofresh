@@ -22,6 +22,7 @@ export const TimelineSchema = object({
   description: string(),
   year: string(),
   imagen: string(),
+  color: string(),
 })
 
 export const TimelineListSchema = array(TimelineSchema)

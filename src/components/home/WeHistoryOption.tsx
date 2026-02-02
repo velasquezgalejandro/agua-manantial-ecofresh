@@ -30,7 +30,7 @@ export const WeHistoryOption = () => {
         }}
       >
         {data?.map((ev, index) => (
-          <TimelineItem key={ev.id}>
+          <TimelineItem key={ev.id} >
             <TimelineSeparator>
               <TimelineDot
                 color={selectedStep === ev.id ? 'primary' : (ev.color as any)}
@@ -58,7 +58,8 @@ export const WeHistoryOption = () => {
                 <Button
                   onClick={() => setSelectedStep(ev.id)}
                   sx={{
-                    maxWidth: 250,
+                    // maxWidth: 250,
+                    width: 1,
                     textTransform: 'none',
                     display: 'flex',
                     flexDirection: 'column',

@@ -3,45 +3,97 @@
     "id": 1,
     "name": "Agua normal sin gas",
     "description": "Agua tratada con procesos de alta calidad, ideal para consumo diario en hogares, empresas e instituciones. Producto sin saborizantes, ni calorias 100% natural.",
-    "imagen": "templates/template_1920x1080.png",
+    "imagen": "templates/normal.png",
     "presentations": [
-      { "tipo": "bolsa", "tamaño": 350, "price": 5000},
-      { "tipo": "bolsa", "tamaño": 6000, "price": 8000}, 
-      { "tipo": "botellon", "tamaño": 20000, "price": 15000},
-      { "tipo": "botella", "tamaño": 300, "price": 2000 },
-      { "tipo": "botella", "tamaño": 600, "price": 3500 }
+      {
+        "tipo": "bolsa",
+        "tamaño": 350,
+        "price": 5000
+      },
+      {
+        "tipo": "bolsa",
+        "tamaño": 6000,
+        "price": 8000
+      },
+      {
+        "tipo": "botellon",
+        "tamaño": 20000,
+        "price": 15000
+      },
+      {
+        "tipo": "botella",
+        "tamaño": 300,
+        "price": 2000
+      },
+      {
+        "tipo": "botella",
+        "tamaño": 600,
+        "price": 3500
+      }
     ]
   },
   {
     "id": 2,
     "name": "Linea ecologica ecofresh",
-    "description":  "Agua de lluvia recolectada , tratada, filtrada y purificada con tecnología sostenible. Se entrega en envases reciclables. Ideal para consumidores comprometidos con el medio ambiente.",
-    "imagen": "templates/template_1920x1080.png",
+    "description": "Agua de lluvia recolectada , tratada, filtrada y purificada con tecnología sostenible. Se entrega en envases reciclables. Ideal para consumidores comprometidos con el medio ambiente.",
+    "imagen": "templates/ecologica.png",
     "presentations": [
-      { "tipo": "bolsa", "tamaño": 350, "price": 4000 },
-      { "tipo": "bolsa", "tamaño": 6000, "price": 7000 },
-      { "tipo": "botellon", "tamaño": 20000, "price": 14000 },
-      { "tipo": "botella", "tamaño": 300, "price": 1800 },
-      { "tipo": "botella", "tamaño": 600, "price": 3000 }
+      {
+        "tipo": "bolsa",
+        "tamaño": 350,
+        "price": 4000
+      },
+      {
+        "tipo": "bolsa",
+        "tamaño": 6000,
+        "price": 7000
+      },
+      {
+        "tipo": "botellon",
+        "tamaño": 20000,
+        "price": 14000
+      },
+      {
+        "tipo": "botella",
+        "tamaño": 300,
+        "price": 1800
+      },
+      {
+        "tipo": "botella",
+        "tamaño": 600,
+        "price": 3000
+      }
     ]
   },
   {
     "id": 3,
     "name": "Linea infantil - toñito",
     "description": "Linea infantil",
-    "imagen": "templates/template_1920x1080.png",
+    "imagen": "templates/infantil.png",
     "presentations": [
-      { "tipo": "botella", "tamaño": 300, "price": 2500 }
+      {
+        "tipo": "botella",
+        "tamaño": 300,
+        "price": 2500
+      }
     ]
   },
   {
     "id": 4,
     "name": "Linea premium",
-    "description": "Agua tratada con procesos de alta calidad, ideal para consumomidores comprometidos con el ambiente  con sabores naturales: limon, frutos rojos, frutos amarillos.  sin calorias 100% natural." ,
-    "imagen": "templates/template_1920x1080.png",
+    "description": "Agua tratada con procesos de alta calidad, ideal para consumomidores comprometidos con el ambiente  con sabores naturales: limon, frutos rojos, frutos amarillos.  sin calorias 100% natural.",
+    "imagen": "templates/premium.png",
     "presentations": [
-      { "tipo": "botella", "tamaño": 300, "price": 3000 },
-      { "tipo": "botella", "tamaño": 600, "price": 4500 }
+      {
+        "tipo": "botella",
+        "tamaño": 300,
+        "price": 3000
+      },
+      {
+        "tipo": "botella",
+        "tamaño": 600,
+        "price": 4500
+      }
     ]
   }
 ]
