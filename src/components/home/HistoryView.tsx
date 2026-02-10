@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import type { FC } from 'react'
 import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
@@ -11,9 +11,6 @@ import { WeHistoryOption } from '~home/WeHistoryOption'
 import { FindUsOption } from '~home/FindUsOption.tsx'
 import { motion } from 'framer-motion'
 import useMediaQuery from '@mui/material/useMediaQuery'
-import IconButton from '@mui/material/IconButton'
-import { ArrowRight } from 'lucide-react'
-import { ArrowLeft } from 'lucide-react'
 
 export const HistoryView = ({ ref }) => {
   const isBiggerThanSm = useMediaQuery((theme) => theme.breakpoints.up('sm'))

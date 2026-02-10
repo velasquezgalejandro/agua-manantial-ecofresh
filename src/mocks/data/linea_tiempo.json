@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "Nuestro comienzo",
-    "description": "¿Cómo nació la compañía?  Remitámonos a 2023. Colombia era un país con una sociedad en la que  persisten desafíos como: Falta de acceso constante a agua potable de calidad, especialmente en sectores rurales o en expansión. El mundo, por su parte, se debatía en la generación indiscriminada de residuos plásticos de un solo uso, que afectan el medio ambiente.",
+    "description": "¿Cómo nació la compañía?  Remitámonos a 2023. Colombia era un país con una sociedad en la que persisten desafíos como: Falta de acceso constante a agua potable de calidad, especialmente en sectores rurales o en expansión. El mundo, por su parte, se debatía en la generación indiscriminada de residuos plásticos de un solo uso, que afectan el medio ambiente.",
     "year": "Inicio",
     "imagen": "templates/template_1920x1080.png",
     "color": "success"

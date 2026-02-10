@@ -2,8 +2,16 @@ import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 import Stack from '@mui/material/Stack'
 import { Map } from '~utils/Map'
+import { useEffect } from 'react'
 
 export const FindUsOption = () => {
+
+
+  const renderCard = (title: string, test: string) => {
+
+    return <></>;
+  }
+
   return (
     <Grid container spacing={2} sx={{ height: 1, pt: 4 }}>
       <Grid size={{ xs: 12, lg: 6 }}>
