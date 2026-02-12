@@ -15,7 +15,6 @@ export const ProductsView = ({ ref }) => {
 
   const data = Object.values(dataProducts)
 
-
   return (
     <GenericContainer sx={{ pb: 0, px: 0 }} ref={ref}>
       <Stack sx={{ rowGap: 6, width: 1 }}>
@@ -26,9 +25,17 @@ export const ProductsView = ({ ref }) => {
           {data?.map((product, index) => {
             const isEven = index % 2 === 0
             return isEven ? (
-              <RightImageProduct {...product} isBiggerThanXl={isBiggerThanXl} />
+              <RightImageProduct
+                {...product}
+                isBiggerThanXl={isBiggerThanXl}
+                key={index}
+              />
             ) : (
-              <LeftImageProduct {...product} isBiggerThanXl={isBiggerThanXl} />
+              <LeftImageProduct
+                {...product}
+                isBiggerThanXl={isBiggerThanXl}
+                key={index}
+              />
             )
           })}
         </Stack>

@@ -1,22 +1,8 @@
 import { GenericContainer } from '~utils/GenericContainer'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import Box from '@mui/material/Box'
 import { motion } from 'framer-motion'
-import {
-  MapPinned,
-  MapPin,
-  MapPinMinus,
-  Earth,
-  Leaf,
-  Recycle,
-  SunDim,
-  Sun,
-  SunMedium,
-  Truck,
-  TruckElectric,
-  Pin,
-} from 'lucide-react'
+import { MapPinned, Leaf, Sun, TruckElectric } from 'lucide-react'
 import SvgIcon from '@mui/material/SvgIcon'
 import Grid from '@mui/material/Grid'
 

@@ -1,14 +1,12 @@
 import { MapContainer, TileLayer, Marker } from 'react-leaflet'
-import type { LatLngExpression } from 'leaflet'
-import L from 'leaflet'
+import type { LatLngExpression, Map as LeafletMap } from 'leaflet'
+import L, { map } from 'leaflet'
 import { MapPin } from 'lucide-react'
 import { renderToStaticMarkup } from 'react-dom/server'
+import { locations } from '~constants/constantsBase'
+import { useEffect, useRef } from 'react'
 
 const center: LatLngExpression = [3.4433, -76.5272]
-const jamundi: LatLngExpression = [3.2613, -76.5423]
-const cali: LatLngExpression = [3.4433, -76.5272]
-const yumbo: LatLngExpression = [3.5826, -76.4925]
-const palmira: LatLngExpression = [3.5345, -76.2986]
 
 const markerStyle: React.CSSProperties = {
   width: 32,
@@ -22,34 +20,77 @@ const markerStyle: React.CSSProperties = {
   boxShadow: '0 4px 10px rgba(0,0,0,0.35)',
 }
 
+const markerSelectStyle: React.CSSProperties = {
+  width: 32,
+  height: 32,
+  backgroundColor: '#ff0000',
+  borderRadius: '50%',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  border: '2px solid white',
+  boxShadow: '0 4px 10px rgba(0,0,0,0.35)',
+}
+
 const lucideMarkerIcon = L.divIcon({
   className: '',
   html: renderToStaticMarkup(
     <div style={markerStyle}>
       <MapPin size={18} color="white" />
-    </div>
+    </div>,
   ),
   iconSize: [32, 32],
   iconAnchor: [16, 32],
 })
 
+const lucideSelectMarkerIcon = L.divIcon({
+  className: '',
+  html: renderToStaticMarkup(
+    <div style={markerSelectStyle}>
+      <MapPin size={18} color="white" />
+    </div>,
+  ),
+  iconSize: [32, 32],
+  iconAnchor: [16, 32],
+})
 
-export const Map = () => {
+export const Map = ({ selectId }: { selectId: number | null }) => {
+  const mapRef = useRef<LeafletMap | null>(null)
+  useEffect(() => {
+    if (mapRef.current && selectId !== null) {
+      mapRef.current.flyTo(
+        locations.find((loc) => loc.id === selectId)
+          ?.coordenadas as LatLngExpression,
+        12,
+        { duration: 1 },
+      )
+    }
+  }, [selectId])
+
   return (
     <MapContainer
       center={center}
       zoom={10}
-      style={{ height: '400px', width: '100%' }}
+      style={{ height: 1, width: '100%', minHeight: 500 }}
+      whenReady={(map) => {
+        mapRef.current = map.target
+      }}
     >
       <TileLayer
         attribution="&copy; OpenStreetMap contributors"
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      <Marker position={jamundi} icon={lucideMarkerIcon} />
-      <Marker position={cali} icon={lucideMarkerIcon} />
-      <Marker position={yumbo} icon={lucideMarkerIcon} />
-      <Marker position={palmira} icon={lucideMarkerIcon} />
+      {locations.map((location) => {
+        const { id, coordenadas } = location
+        return (
+          <Marker
+            key={id}
+            position={coordenadas as LatLngExpression}
+            icon={id === selectId ? lucideSelectMarkerIcon : lucideMarkerIcon}
+          />
+        )
+      })}
     </MapContainer>
   )
 }
