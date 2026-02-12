@@ -24,7 +24,7 @@ export const AboutsUsOption = () => {
   return (
     <Stack sx={{ pt: 4 }}>
       <Grid container spacing={2}>
-        <Grid item size={{ xs: 12, lg: 6 }}>
+        <Grid size={{ xs: 12, lg: 6 }}>
           <motion.div
             initial={{ opacity: 0, x: -50 }} // Estado inicial
             animate={{ opacity: 1, x: 0 }} // Estado final
@@ -87,7 +87,7 @@ export const AboutsUsOption = () => {
           </motion.div>
         </Grid>
 
-        <Grid item size={{ xs: 12, lg: 6 }}>
+        <Grid size={{ xs: 12, lg: 6 }}>
           <motion.div
             initial={{ opacity: 0, x: 50 }} // Estado inicial
             animate={{ opacity: 1, x: 0 }} // Estado final

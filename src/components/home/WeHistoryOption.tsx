@@ -74,11 +74,9 @@ export const WeHistoryOption = () => {
                       selectedStep === ev.id
                         ? 'primary.main + 20'
                         : 'transparent',
-                    // boxShadow: selectedStep === ev.id ? 4 : 2,
                     '&:hover': {
                       color: 'primary.main',
                       boxShadow: selectedStep === ev.id ? 6 : 4,
-                      // backgroundColor: 'grey.300', // nuevo
                     },
                   }}
                 >
@@ -129,10 +127,6 @@ export const WeHistoryOption = () => {
           </Stack>
         ) : (
           <Stack spacing={2} height="100%">
-            <Typography variant="h4" fontWeight="bold" textAlign="center">
-              {eventSelected.title}
-            </Typography>
-
             <Stack
               sx={{
                 flexDirection: 'column',
@@ -152,6 +146,9 @@ export const WeHistoryOption = () => {
                   boxShadow: 3,
                 }}
               />
+              <Typography variant="h4" fontWeight="bold" textAlign="center">
+                {eventSelected.title}
+              </Typography>
               <Typography
                 sx={{
                   fontSize: '1rem',
